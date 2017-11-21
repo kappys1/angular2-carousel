@@ -105,3 +105,6 @@ footer{
   -ms-flex-align: center;
   align-items: center;
 }
+.content{
+  padding: 2vh;
+}
