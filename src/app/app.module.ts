@@ -14,6 +14,7 @@ import { FunctionsCarouselComponent } from './components/functions-carousel/func
 import {SafeHtmlPipe} from "./pipes/pipe.safehtml";
 import { CubeCarouselComponent } from './components/cube-carousel/cube-carousel.component';
 import { StyleCarouselComponent } from './components/style-carousel/style-carousel.component';
+import { AdsenseModule } from 'ng2-adsense';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,10 @@ import { StyleCarouselComponent } from './components/style-carousel/style-carous
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     ),
+    AdsenseModule.forRoot({
+      adClient: 'ca-pub-7640562161899788',
+      adSlot: 7259870550
+    }),
     CarouselModule,
     BrowserModule
   ],

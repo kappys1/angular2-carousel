@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<header>\n  <div class=\"content-icon\">\n    <img class=\"icon\" src=\"../assets/img/icon.png\">\n  </div>\n  <div class=\"content-title\">\n    <h1>angular2-carousel</h1>\n    <h2>An lightweight , simple and touchable carousel library</h2>\n    <div class=\"social-bar\">\n      <a href=\"https://badge.fury.io/js/angular2-carousel\"><img src=\"https://badge.fury.io/js/angular2-carousel.svg\" alt=\"npm version\" height=\"18\"></a>\n      <a href=\"https://github.com/kappys1/angular2-carousel\"><img src=\"https://img.shields.io/badge/github-1.0.0-green.svg\"></a>\n    </div>\n  </div>\n</header>\n<nav class=\"menu\">\n  <a class=\"button-menu\" routerLink=\"/getStarted\"  routerLinkActive=\"active\">Get Started</a>\n  <a class=\"button-menu\" routerLink=\"/demo\"  routerLinkActive=\"active\">Demos</a>\n  <a class=\"button-menu\" routerLink=\"/api\"  routerLinkActive=\"active\">API</a>\n</nav>\n<div class=\"content\">\n  <router-outlet></router-outlet>\n</div>\n<footer>\n  <div>2017 © Angular 2 carousel by Alex Marcos from <a src=\"https://tmtfactory.com\">tmtfactory.com</a></div>\n</footer>\n\n\n\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<header>\n  <div class=\"content-icon\">\n    <img class=\"icon\" src=\"../assets/img/icon.png\">\n  </div>\n  <div class=\"content-title\">\n    <h1>angular2-carousel</h1>\n    <h2>An lightweight , simple and touchable carousel library</h2>\n    <div class=\"social-bar\">\n      <a href=\"https://badge.fury.io/js/angular2-carousel\"><img src=\"https://badge.fury.io/js/angular2-carousel.svg\" alt=\"npm version\" height=\"18\"></a>\n      <a href=\"https://github.com/kappys1/angular2-carousel\"><img src=\"https://img.shields.io/badge/github-1.0.0-green.svg\"></a>\n    </div>\n  </div>\n  <div>\n    <ng-adsense\n      [adClient]=\"'ca-pub-3647075652313201'\"\n      [adSlot]=\"7259870550\"\n      [display]=\"'inline-block'\"\n      [width]=\"320\"\n      [height]=\"108\">\n    </ng-adsense>\n  </div>\n</header>\n<nav class=\"menu\">\n  <a class=\"button-menu\" routerLink=\"/getStarted\"  routerLinkActive=\"active\">Get Started</a>\n  <a class=\"button-menu\" routerLink=\"/demo\"  routerLinkActive=\"active\">Demos</a>\n  <a class=\"button-menu\" routerLink=\"/api\"  routerLinkActive=\"active\">API</a>\n</nav>\n<div class=\"content\">\n  <router-outlet></router-outlet>\n</div>\n<footer>\n  <div>2017 © Angular 2 carousel by Alex Marcos from <a src=\"https://tmtfactory.com\">tmtfactory.com</a></div>\n</footer>\n\n\n\n"
 
 /***/ }),
 
@@ -92,12 +92,14 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pipes_pipe_safehtml__ = __webpack_require__("../../../../../src/app/pipes/pipe.safehtml.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_cube_carousel_cube_carousel_component__ = __webpack_require__("../../../../../src/app/components/cube-carousel/cube-carousel.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_style_carousel_style_carousel_component__ = __webpack_require__("../../../../../src/app/components/style-carousel/style-carousel.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_ng2_adsense__ = __webpack_require__("../../../../ng2-adsense/ng2-adsense.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -133,6 +135,10 @@ var AppModule = (function () {
             imports: [
                 __WEBPACK_IMPORTED_MODULE_5__angular_router__["a" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_6__app_routes__["a" /* appRoutes */], { enableTracing: true } // <-- debugging purposes only
                 ),
+                __WEBPACK_IMPORTED_MODULE_15_ng2_adsense__["a" /* AdsenseModule */].forRoot({
+                    adClient: 'ca-pub-7640562161899788',
+                    adSlot: 7259870550
+                }),
                 __WEBPACK_IMPORTED_MODULE_3_angular2_carousel__["b" /* CarouselModule */],
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */]
             ],
@@ -688,7 +694,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/get-started/get-started.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Getting Started with Angular Carousel</h1>\n<h2>1a Download and Install</h2>\n<p>First, you need download library:</p>\n<ul>\n  <li>We can download them from <a href=\"https://github.com/kappys1/angular2-carousel\">Swiper GitHub repository</a></li>\n  <li>\n    Or, using NPM\n    <pre>\n      <div class=\"code hljs ruby\">\n        npm install --save angular2-carrousel\n      </div>\n    </pre>\n  </li>\n</ul>\nIn the downloaded/installed package we need files from the dist/ folder.\n\n<h2>2a Usage</h2>\n<p>First tou need to provide the CarouselModule to your desired Module</p>\n<pre >\n      <div class=\"code hljs ruby\" [innerHTML]=\"html | safeHtml\">\n\n      </div>\n</pre>\n\n<h2>3. Add Carousel HTML Layout</h2>\n<p>Now, you can use CarouselModule as follow:</p>\n<pre >\n      <div class=\"code hljs ruby\" [innerHTML]=\"html2 | safeHtml\">\n\n      </div>\n</pre>\n<p><b>All slides of carousel must have \"<i>.item-carousel</i>\" </b></p>\n<b><a href=\"https://embed.plnkr.co/CPWvmndIgpsglCvLChhc/\">Preview plnkr</a></b>\n"
+module.exports = "<h1>Getting Started with Angular Carousel</h1>\n<h2>1a Download and Install</h2>\n<p>First, you need download library:</p>\n<ul>\n  <li>We can download them from <a href=\"https://github.com/kappys1/angular2-carousel\">Swiper GitHub repository</a></li>\n  <li>\n    Or, using NPM\n    <pre>\n      <div class=\"code hljs ruby\">\n        npm install --save angular2-carrousel\n      </div>\n    </pre>\n  </li>\n</ul>\nIn the downloaded/installed package we need files from the dist/ folder.\n\n<h2>2a Usage</h2>\n<p>First tou need to provide the CarouselModule to your desired Module</p>\n<pre >\n      <div class=\"code hljs ruby\" [innerHTML]=\"html | safeHtml\">\n\n      </div>\n</pre>\n<h2>3. Add Carousel HTML Layout</h2>\n<p>Now, you can use CarouselModule as follow:</p>\n<pre >\n      <div class=\"code hljs ruby\" [innerHTML]=\"html2 | safeHtml\">\n\n      </div>\n</pre>\n<p><b>All slides of carousel must have \"<i>.item-carousel</i>\" </b></p>\n<b><a href=\"https://embed.plnkr.co/CPWvmndIgpsglCvLChhc/\">Preview plnkr</a></b>\n"
 
 /***/ }),
 

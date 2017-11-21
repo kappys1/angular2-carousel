@@ -3369,6 +3369,142 @@ if (true) {
 
 /***/ }),
 
+/***/ "../../../../ng2-adsense/ng2-adsense.es5.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export ADSENSE_CONFIG */
+/* unused harmony export AdsenseComponent */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdsenseModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+
+
+
+var ADSENSE_CONFIG = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* InjectionToken */]('AdsenseConfig');
+var AdsenseComponent = /** @class */ (function () {
+    /**
+     * @param {?} config
+     */
+    function AdsenseComponent(config) {
+        this.config = config;
+        /**
+         * can be manually set if you need all ads on a page to have same id page-xxx
+         */
+        this.adRegion = 'page-' + Math.floor(Math.random() * 10000) + 1;
+    }
+    /**
+     * @return {?}
+     */
+    AdsenseComponent.prototype.ngOnInit = function () {
+        var /** @type {?} */ config = this.config;
+        /**
+         * @template T
+         * @param {?} source
+         * @param {?} defaultValue
+         * @return {?}
+         */
+        function use(source, defaultValue) {
+            return config && source !== undefined ? source : defaultValue;
+        }
+        this.adClient = use(this.adClient, config.adClient);
+        this.adSlot = use(this.adSlot, config.adSlot);
+        this.adFormat = use(this.adFormat, config.adFormat || 'auto');
+        this.display = use(this.display, config.display || 'block');
+        this.width = use(this.width, config.width);
+        this.height = use(this.height, config.height);
+        this.layout = use(this.layout, config.layout);
+        this.layoutKey = use(this.layoutKey, config.layoutKey);
+    };
+    /**
+     * attempts to push the ad twice. Usually if one doesn't work the other
+     * will depeding on if the browser has the adsense code cached and
+     * if its the first page to be loaded
+     * @return {?}
+     */
+    AdsenseComponent.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        var /** @type {?} */ res = this.push();
+        if (res instanceof TypeError) {
+            setTimeout(function () { return _this.push(); }, 200);
+        }
+    };
+    /**
+     * @return {?}
+     */
+    AdsenseComponent.prototype.push = function () {
+        try {
+            var /** @type {?} */ adsbygoogle = window['adsbygoogle'];
+            adsbygoogle.push({});
+            return true;
+        }
+        catch (e) {
+            return e;
+        }
+    };
+    AdsenseComponent.decorators = [
+        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */], args: [{
+                    selector: 'ng2-adsense,ng-adsense',
+                    template: "\n  <ins class=\"adsbygoogle\"\n    [ngStyle]=\"{'display': display, 'width.px': width, 'height.px': height }\"\n    [attr.data-ad-client]=\"adClient\"\n    [attr.data-ad-slot]=\"adSlot\"\n    [attr.data-ad-format]=\"adFormat\"\n    [attr.data-ad-region]=\"adRegion\"\n    [attr.data-layout]=\"layout\"\n    [attr.data-layout-key]=\"layoutKey\">\n  </ins>\n  ",
+                },] },
+    ];
+    /**
+     * @nocollapse
+     */
+    AdsenseComponent.ctorParameters = function () { return [
+        { type: undefined, decorators: [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Inject */], args: [ADSENSE_CONFIG,] },] },
+    ]; };
+    AdsenseComponent.propDecorators = {
+        'adClient': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */] },],
+        'adSlot': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */] },],
+        'adFormat': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */] },],
+        'adRegion': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */] },],
+        'display': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */] },],
+        'width': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */] },],
+        'height': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */] },],
+        'layout': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */] },],
+        'layoutKey': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */] },],
+    };
+    return AdsenseComponent;
+}());
+var AdsenseModule = /** @class */ (function () {
+    function AdsenseModule() {
+    }
+    /**
+     * @param {?=} config
+     * @return {?}
+     */
+    AdsenseModule.forRoot = function (config) {
+        if (config === void 0) { config = {}; }
+        return {
+            ngModule: AdsenseModule,
+            providers: [{ provide: ADSENSE_CONFIG, useValue: config }],
+        };
+    };
+    AdsenseModule.decorators = [
+        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */], args: [{
+                    imports: [__WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */]],
+                    exports: [AdsenseComponent],
+                    declarations: [AdsenseComponent],
+                },] },
+    ];
+    /**
+     * @nocollapse
+     */
+    AdsenseModule.ctorParameters = function () { return []; };
+    return AdsenseModule;
+}());
+
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+
+//# sourceMappingURL=ng2-adsense.es5.js.map
+
+
+/***/ }),
+
 /***/ "../../../../rxjs/_esm5/BehaviorSubject.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
