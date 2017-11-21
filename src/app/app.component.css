@@ -1,0 +1,107 @@
+:host{
+  /*margin-bottom: 5vh;*/
+  display: block;
+}
+header{
+  height: 25vh;
+  padding: 2vh;
+  overflow: hidden;
+  background-position: center bottom;
+  background: #1e70cd;
+  background: -moz-radial-gradient(0% 0%,ellipse cover,#2c8dfb 0%,#1e70cd 50%);
+  background: -webkit-gradient(radial,0% 0%,0px,center center,100%,color-stop(0%,#2c8dfb),color-stop(50%,#1e70cd));
+  background: -webkit-radial-gradient(0% 0%,ellipse cover,#2c8dfb 0%,#1e70cd 50%);
+  background: -o-radial-gradient(0% 0%,ellipse cover,#2c8dfb 0%,#1e70cd 50%);
+  background: -ms-radial-gradient(0% 0%,ellipse cover,#2c8dfb 0%,#1e70cd 50%);
+  background: radial-gradient(ellipse at 0% 0%,#2c8dfb 0%,#1e70cd 50%);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  color: #fff;
+}
+header h1{
+  font-weight: 100;
+  color: white;
+  font-size: 5vh;
+}
+
+header .content-icon{
+  display: inline-block;
+  width: auto;
+  height: 100%;
+  padding: 4vh;
+
+}
+header img.icon{
+  height: 100%;
+}
+header h2{
+  color: white;
+}
+header .social-bar a{
+  margin-right: 1vh;
+}
+nav.menu{
+  background-color: #1976d2;
+}
+nav.menu .button-menu{
+  color: white;
+  font-size: 2.3vh;
+  padding: 1.3vh;
+  cursor: pointer;
+  background-color: transparent;
+  border-radius: 0;
+}
+nav.menu .button-menu.active{
+  color: #1976d2;
+  background-color: white;
+}
+
+header,
+header .social-bar,
+nav.menu{
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+footer{
+  color: white;
+  margin-top: 3vh;
+  background-color: #1976d2;
+  height: 5vh;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
