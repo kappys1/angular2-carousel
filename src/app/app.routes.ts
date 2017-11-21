@@ -22,5 +22,5 @@ export let appRoutes: Routes = [
     redirectTo: '/getStarted',
     pathMatch: 'full'
   },
-  // { path: '**', component: PageNotFoundComponent }
+  { path: '**', component: GetStartedComponent }
 ];
