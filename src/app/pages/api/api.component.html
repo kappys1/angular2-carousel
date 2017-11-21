@@ -1,0 +1,304 @@
+<h1>Carousel Api</h1>
+<h2>Inputs (Properties)</h2>
+<table>
+  <thead>
+  <tr>
+    <th>Parameter</th>
+    <th>Type</th>
+    <th>Default</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>morePairSlides</td>
+    <td>number</td>
+    <td>1</td>
+    <td>Add slide carousel in both sides</td>
+  </tr>
+  <tr>
+    <td>angle</td>
+    <td>number</td>
+    <td>45</td>
+    <td>Angle to distribute the carousel</td>
+  </tr>
+  <tr>
+    <td>ratioScale</td>
+    <td>number</td>
+    <td>1</td>
+    <td>Carousel scale ratio</td>
+  </tr>
+  <tr>
+    <td>margin</td>
+    <td>number</td>
+    <td>0</td>
+    <td>Margin to separate between carousel slides</td>
+  </tr>
+  <tr>
+    <td>perspective</td>
+    <td>number</td>
+    <td>2000</td>
+    <td>Perspective to show the carousel slide</td>
+  </tr>
+  <tr>
+    <td>timeToSlide</td>
+    <td>number</td>
+    <td>300</td>
+    <td>Time (in ms) to transalte to carousel slide if transition isn't complete</td>
+  </tr>
+  <tr>
+    <td>lockSlides</td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Block the swiping</td>
+  </tr>
+  <tr>
+    <td>initialSlide</td>
+    <td>number</td>
+    <td>0</td>
+    <td>Index number on initial carrousel</td>
+  </tr>
+  <tr>
+    <td>mode</td>
+    <td>string</td>
+    <td>"horizontal"</td>
+    <td>Can you init carousel in 'horizontal' or 'vertical' mode</td>
+  </tr>
+  </tbody>
+</table>
+<h3 class="example-title"(click)="showParameterExample = !showParameterExample">example (show/hide)</h3>
+
+<div class="content-example {{showParameterExample?'show':''}}">
+  <h3>Template:</h3>
+  <p>example to use input parameters to init carousel component with 30 angle.</p>
+  <p><i>note : you can use a variable to set angle.</i></p>
+  <pre>
+      <div class="code hljs ruby" [innerHTML]="parameterHtml | safeHtml">
+
+      </div>
+  </pre>
+
+</div>
+<h2>Outputs (Events)</h2>
+<p><i>All events return the carousel by argument on callback function, in table you can see what event return carousel only or event too</i></p>
+<table>
+  <thead>
+  <tr>
+    <th>Event</th>
+    <th>argument</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>onInit</td>
+    <td>carousel</td>
+    <td>Event will carousel component initialize</td>
+  </tr>
+  <tr>
+    <td>onReady</td>
+    <td>carousel</td>
+    <td>Event will carousel component is ready</td>
+  </tr>
+  <tr>
+    <td>onChangeProperties</td>
+    <td>Property (SimpleChanges type)</td>
+    <td>Event will properties of carousel changes</td>
+  </tr>
+  <tr>
+    <td>onSlideChange</td>
+    <td>carousel</td>
+    <td>Event will be fired when slide change</td>
+  </tr>
+  <tr>
+    <td>onSlideCentered</td>
+    <td>carousel</td>
+    <td>Event will be fired when actual slide are centered</td>
+  </tr>
+  <tr>
+    <td>onTransitionStart</td>
+    <td>js event &amp;&amp; carousel</td>
+    <td>Event will be fired in the beginning of transition. normally when you up finger and the slide isn't collocate</td>
+  </tr>
+  <tr>
+    <td>onTransitionEnd</td>
+    <td>js event &amp;&amp; carousel</td>
+    <td>Event will be fired after transition.</td>
+  </tr>
+  <tr>
+    <td>onSlideNextTransitionStart</td>
+    <td>js event &amp;&amp; carousel</td>
+    <td>Same as "onTransitionStart" but for "forward" direction only</td>
+  </tr>
+  <tr>
+    <td>onSlideNextTransitionEnd</td>
+    <td>js event &amp;&amp; carousel</td>
+    <td>Same as "onTransitionEnd" but for "forward" direction only</td>
+  </tr>
+  <tr>
+    <td>onSlidePrevTransitionStart</td>
+    <td>js event &amp;&amp; carousel</td>
+    <td>Same as "onTransitionEnd" but for "backward" direction only</td>
+  </tr>
+  <tr>
+    <td>onSlidePrevTransitionEnd</td>
+    <td>js event &amp;&amp; carousel</td>
+    <td>Same as "onTransitionEnd" but for "backward" direction only</td>
+  </tr>
+  <tr>
+    <td>onTouchMove</td>
+    <td>js event &amp;&amp; carousel</td>
+    <td>Event will be fired when user move carrousel</td>
+  </tr>
+  <tr>
+    <td>onTouchStart</td>
+    <td>js event &amp;&amp; carousel</td>
+    <td>Event will be fired when user start to move the carousel</td>
+  </tr>
+  <tr>
+    <td>onTouchEnd</td>
+    <td>js event &amp;&amp; carousel</td>
+    <td>Event will be fired when user finish to move the carousel</td>
+  </tr>
+  <tr>
+    <td>onSlideMove</td>
+    <td>hammer event &amp;&amp; carousel</td>
+    <td>Event will be fired when user touch and move finger over carousel and move it</td>
+  </tr>
+  <tr>
+    <td>onSlideMoveEnd</td>
+    <td>hammer event &amp;&amp; carousel</td>
+    <td>Event will be fired when user stop move finger over carousel</td>
+  </tr>
+  <tr>
+    <td>onSlideMoveStart</td>
+    <td>hammer event &amp;&amp; carousel</td>
+    <td>Event will be fired when user start move finger over carousel</td>
+  </tr>
+  <tr>
+    <td>onReachBeginning</td>
+    <td>carousel</td>
+    <td>Event will be fired when Swiper reach its beginning (initial position)</td>
+  </tr>
+  <tr>
+    <td>onReachEnd</td>
+    <td>carousel</td>
+    <td>Event will be fired when Swiper reach last slide</td>
+  </tr>
+  </tbody>
+</table>
+<h3 class="example-title"(click)="showOutputExample = !showOutputExample">example (show/hide)</h3>
+
+<div class="content-example {{showOutputExample?'show':''}}">
+  <h3>Template:</h3>
+  <p>example to use output event when slideTransitionEnd.</p>
+  <p><i>note : use a function created in your component that where you want to receive the event</i></p>
+  <pre>
+      <div class="code hljs ruby" [innerHTML]="outputHtml | safeHtml">
+
+      </div>
+  </pre>
+</div>
+<h2>Functions & Properties</h2>
+<p>After we initialize Carrousel we have its initialized instance in variable (like topCarousel variable in example above) with helpful methods and properties:</p>
+<h3>functions</h3>
+<table>
+  <thead>
+  <tr>
+    <th>Event</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>slideNext()</td>
+    <td>Function to move the carousel to next slide</td>
+  </tr>
+  <tr>
+    <td>slidePrev()</td>
+    <td>Function to move the carousel to previous slide</td>
+  </tr>
+  <tr>
+    <td>slideTo(index)</td>
+    <td>Function to move the carousel to index slide</td>
+  </tr>
+  <tr>
+    <td>toggleMode()</td>
+    <td>Change to 'horizontal' or 'vertical' mode</td>
+  </tr>
+  <tr>
+    <td>update()</td>
+    <td>You should call it if you want update the carousel</td>
+  </tr>
+  <tr>
+    <td>lockCarousel(value)</td>
+    <td>Function for lock carousel swiper (True / False)</td>
+  </tr>
+  </tbody>
+</table>
+<h3>Properties</h3>
+<p><i>the current properties of carousel it's inside carousel variable, <b>the others properties of functions are Input or Outputs parameters</b></i></p>
+<table>
+  <thead>
+  <tr>
+    <th>Params</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>currdeg</td>
+    <td>number</td>
+    <td>Actual deg of our carousel</td>
+  </tr>
+  <tr>
+    <td>activeIndex</td>
+    <td>number</td>
+    <td>Index number of currently active slide</td>
+  </tr>
+  <tr>
+    <td>degreesSlides</td>
+    <td>Array</td>
+    <td>Degrees where are our carousel slides</td>
+  </tr>
+  <tr>
+    <td>items</td>
+    <td>Array</td>
+    <td>Elements HTML in carousel</td>
+  </tr>
+  <tr>
+    <td>lastIndex</td>
+    <td>number</td>
+    <td>Last Index number active slide</td>
+  </tr>
+  <tr>
+    <td>lockSlides</td>
+    <td>Boolean</td>
+    <td>Carousel swipe status, if is blocked</td>
+  </tr>
+  <tr>
+    <td>totalItems</td>
+    <td>number</td>
+    <td>Total items in carousel</td>
+  </tr>
+  </tbody>
+</table>
+<h3 class="example-title"(click)="showPropertiesExample = !showPropertiesExample">example (show/hide)</h3>
+
+<div class="content-example {{showPropertiesExample?'show':''}}">
+  <h3>Template:</h3>
+  <p>you need init the component in template setting a identificator like this:</p>
+  <pre>
+      <div class="code hljs ruby" [innerHTML]="propertiesHtml | safeHtml">
+
+      </div>
+  </pre>
+  <h3>Component:</h3>
+  <p>In your component you need get the carousel component like this:</p>
+  <pre>
+      <div class="code hljs ruby" [innerHTML]="propertiesController | safeHtml">
+
+      </div>
+  </pre>
+</div>

@@ -1,0 +1,18 @@
+*{
+  font-size: 2vh;
+}
+h1{
+  font-size: 6vh;
+  font-weight: 200;
+}
+
+h2{
+  font-size: 4vh;
+  font-weight: 200;
+  color: #1976d2;
+}
+
+li{
+  margin-top: 2vh;
+}
+

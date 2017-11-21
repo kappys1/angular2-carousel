@@ -1,0 +1,50 @@
+h1{
+  font-size: 6vh;
+  font-weight: 200;
+}
+
+h2{
+  font-size: 4vh;
+  font-weight: 200;
+  color: #1976d2;
+}
+h3{
+  font-size: 3vh;
+  font-weight: 200;
+  color: #1976d2;
+}
+
+p{
+  font-size: 2vh;
+}
+table{
+  width: 80%;
+  font-size: 1.2em;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: #555;
+}
+table, th, td {
+  border: 1px solid #555;
+}
+th, td {
+  padding: 2vh;
+}
+.example-title{
+  cursor: pointer;
+}
+.content-example{
+  opacity: 0;
+  height: 0vh;
+  overflow: hidden;
+  visibility: hidden;
+  -webkit-transition: opacity 300ms, height 300ms;
+  -moz-transition: opacity 300ms, height 300ms;
+  -o-transition: opacity 300ms, height 300ms;
+  transition: opacity 300ms, height 300ms;
+}
+.content-example.show{
+  opacity: 1;
+  visibility: visible;
+  height: auto;
+}
