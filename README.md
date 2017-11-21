@@ -10,7 +10,7 @@
 ## Install
 You can install the package from our npm package
 ```
- npm install --save angular2-carrousel
+ npm install --save angular2-carousel
 ```
 
 ## Usage
