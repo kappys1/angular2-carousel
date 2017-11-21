@@ -1,6 +1,6 @@
 {
   "name": "angular2-carousel",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Angular 2 Minimalist carousel",
   "main": "dist/bundle/ng2-carousel-module.umd.js",
   "module": "dist/index.ts",
@@ -23,8 +23,8 @@
     "ng2",
     "carousel"
   ],
-  "repository" :
-  { "type" : "git",
+  "repository" : {
+    "type" : "git",
     "url" : "https://github.com/kappys1/angular2-carrousel.git"
   },
   "author": "Alejandro Marcos > Alejandro.marcos@tmtfactory",

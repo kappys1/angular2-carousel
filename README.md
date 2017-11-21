@@ -4,6 +4,8 @@
 
 > this is a smart library to create a carousel for angular 2+
 
+## [Demo](https://kappys1.github.io/angular2-carousel/demo)
+
 ## Install
 You can install the package from our npm package
 ```
@@ -86,6 +88,9 @@ example to use input parameters to init carousel component with 30 angle.
  
 | Event | argument |Description |
 | ------ | ------ | ------ |
+| onInit | carousel | Event will carousel component initialize |
+| onReady | carousel | Event will carousel component is ready |
+| onChangeProperties | Property (SimpleChanges) | Event will properties of carousel changes |
 | onSlideChange | carousel | Event will be fired when slide change |
 | onSlideCentered | carousel | Event will be fired when actual slide are centered |
 | onTransitionStart | js event && carousel | Event will be fired in the beginning of transition. normally when you up finger and the slide isn't collocate |
@@ -139,8 +144,8 @@ After we initialize Carrousel we have its initialized instance in variable (like
 *the current properties of carousel it's inside carousel variable, **the others properties of functions are Input or Outputs parameters***
 | Params | Type | Description |
 | ------ | ------ | ------ |
-| currdeg | number | Actual deg of our carousel|
-| activeIndex | number | Index number of currently active slide|
+| currdeg | number | Actual deg of our carousel |
+| activeIndex | number | Index number of currently active slide |
 | degreesSlides | Array | Degrees where are our carousel slides |
 | items | Array | Elements HTML in carousel |
 | lastIndex | number | Last Index number active slide |

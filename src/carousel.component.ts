@@ -4,7 +4,8 @@
  * @ignore
  */
 import {
-  AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild
+    AfterViewInit, Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges,
+    ViewChild
 } from '@angular/core';
 import * as Hammer from 'hammerjs';
 import {Carousel} from "./Carousel";
@@ -29,13 +30,18 @@ import {Carousel} from "./Carousel";
             height: 100%;
             width: 100%;
             position: absolute;
+            -webkit-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            -o-transform-style: preserve-3d;
             transform-style: preserve-3d;
+ 
+        }
+        :host.ready .carousel {
             -webkit-transition: -webkit-transform 300ms;
             -moz-transition:-moz-transform 300ms;
             -o-transition: -o-transform 300ms;
             transition: transform 300ms;
         }
-
         :host .container .carousel ::content >>> .item-carousel {
             display: block;
             position: absolute;
@@ -46,11 +52,14 @@ import {Carousel} from "./Carousel";
             transform-style: preserve-3d;
             overflow: hidden;
             opacity: 0;
+        }
+        :host.ready .carousel ::content >>> .item-carousel {
             -webkit-transition: opacity 300ms, -webkit-transform 300ms;
             -moz-transition: opacity 300ms, -moz-transform 300ms;
             -o-transition: opacity 300ms, -o-transform 300ms;
             transition: opacity 300ms, transform 300ms;
         }
+        
         :host .container .carousel ::content >>> .item-carousel img{
             user-drag: none;
             user-select: none;
@@ -59,11 +68,14 @@ import {Carousel} from "./Carousel";
             -webkit-user-select: none;
             -ms-user-select: none;
         }
+        
         :host .container .carousel ::content >>> .item-carousel.next,
         :host .container .carousel ::content >>> .item-carousel.prev,
         :host .container .carousel ::content >>> .item-carousel.actual{
             opacity: 0.95;
         }
+
+
     `],
 
     template: '<div class="container" #container>\n' +
@@ -76,7 +88,7 @@ import {Carousel} from "./Carousel";
 
 
 // TODO: move chart.js to it's own component
-export class CarouselComponent implements OnInit,AfterViewInit{
+export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
 
   public carousel = new Carousel();
   //carrousel radious
@@ -93,6 +105,10 @@ export class CarouselComponent implements OnInit,AfterViewInit{
   @Input("initialSlide") initialSlide = 0;
   @Input("loop") loop = false;
   @Input("mode") axis = "horizontal";
+
+  @Output("onInit") onInitCarousel = new EventEmitter();
+  @Output("onReady") onReadyCarousel = new EventEmitter();
+  @Output("onChangeProperties") onChangePropertiesCarousel = new EventEmitter();
 
   @Output("onSlideChange") onSlideChange = new EventEmitter();
   @Output("onSlideCentered") onSlideCentered = new EventEmitter();
@@ -120,16 +136,31 @@ export class CarouselComponent implements OnInit,AfterViewInit{
 
 
 
-  constructor(){
+  constructor(private componentElement:ElementRef){
+
   }
 
   ngOnInit(){
+    this.onInitCarousel.emit(this.carousel);
+  }
+
+  ngOnChanges(changes : SimpleChanges){
+    for(let i=0;i<Object.keys(changes).length;i++){
+        if(changes[Object.keys(changes)[i]].currentValue != changes[Object.keys(changes)[i]].previousValue && !changes[Object.keys(changes)[i]].isFirstChange()){
+            this.update();
+            this.onChangePropertiesCarousel.emit(changes);
+        }
+    }
 
   }
 
   ngAfterViewInit() {
     this.initEventsPan();
     this.configPlugin();
+    setTimeout( function(){
+        this.componentElement.nativeElement.className += ' ready';
+    }.bind(this));
+    this.onReadyCarousel.emit(this.carousel);
   }
 
   public lockCarousel(val : boolean){
@@ -159,10 +190,8 @@ export class CarouselComponent implements OnInit,AfterViewInit{
 
   public toggleMode(){
       this.axis = this.axis == "vertical"? "horizontal":"vertical";
-      this.checkRotation();
-      this.getmaxSizes();
-      this.setDegreesOnSlides();
-      this.setTransformCarrousel(-this.carousel.degreesSlides[this.carousel.activeIndex]);
+      this.update();
+
   }
 
   public reInit(){
@@ -171,7 +200,10 @@ export class CarouselComponent implements OnInit,AfterViewInit{
   }
 
   public update(){
-
+      this.checkRotation();
+      this.getmaxSizes();
+      this.setDegreesOnSlides();
+      this.setTransformCarrousel(-this.carousel.degreesSlides[this.carousel.activeIndex]);
   }
 
 
@@ -196,22 +228,30 @@ export class CarouselComponent implements OnInit,AfterViewInit{
       hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL });
   }
   private rotate(e : any){
-    let velocity = this.carousel.isHorizontal?e.velocityX:-e.velocityY;
-    this.setNewDeg(this.carousel.currdeg + velocity);
-    this.moveCarrousel(this.carousel.currdeg);
-    if(e.isFinal){
-      if(this.endInSlide){
-          this.moveSlideTo(this.carousel.activeIndex);
-      }
+    if(!this.carousel.lockSlides) {
+        let velocity = this.carousel.isHorizontal ? e.velocityX : -e.velocityY;
+        this.setNewDeg(this.carousel.currdeg + velocity);
+        this.moveCarrousel(this.carousel.currdeg);
+        if (e.isFinal) {
+            if (this.endInSlide) {
+                this.moveSlideTo(this.carousel.activeIndex);
+            }
+        }
     }
   }
   private initSlidesOn(){
     if(this.initialSlide >= 0 && this.initialSlide<this.carousel.items.length){
-      this.carousel.activeIndex = this.initialSlide;
-      let newDeg = this.carousel.activeIndex*this.angle;
-      this.setNewDeg(-newDeg);
-      this.setTransformCarrousel(-newDeg);
+      this.carousel.activeIndex = parseInt(this.initialSlide.toString());
     }
+    else if(this.initialSlide >= this.carousel.items.length){
+      this.carousel.activeIndex = this.carousel.items.length-1;
+    }
+    else{
+        this.carousel.activeIndex = 0;
+    }
+    let newDeg = this.carousel.activeIndex*this.angle;
+    this.setNewDeg(-newDeg);
+    this.setTransformCarrousel(-newDeg);
   }
 
   private setNewDeg(newDeg : number){
@@ -238,12 +278,11 @@ export class CarouselComponent implements OnInit,AfterViewInit{
   }
 
   private moveCarrousel(deg : number, timeTransform  : number =0){
-    if(!this.carousel.lockSlides){
-      this.carouselElm.nativeElement.style.transition = "transform "+timeTransform+"ms";
-      this.carouselElm.nativeElement.style.webkitTransition = "transform "+timeTransform+"ms";
-      this.setTransformCarrousel(deg);
-      this.detectCurrentSlide();
-    }
+    this.carouselElm.nativeElement.style.transition = "transform "+timeTransform+"ms";
+    this.carouselElm.nativeElement.style.webkitTransition = "transform "+timeTransform+"ms";
+    this.setTransformCarrousel(deg);
+    this.detectCurrentSlide();
+
   }
   private setTransformCarrousel(deg : number){
     this.carouselElm.nativeElement.style.transform = "translateZ("+(-this.radius)+"px) "+this.rotationFn+"("+deg+"deg)";
