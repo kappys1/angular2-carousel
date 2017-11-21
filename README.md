@@ -4,7 +4,8 @@
 
 > this is a smart library to create a carousel for angular 2+
 
-## [Demo](https://kappys1.github.io/angular2-carousel/demo)
+## Demo
+> demos available [here](https://kappys1.github.io/angular2-carousel)
 
 ## Install
 You can install the package from our npm package

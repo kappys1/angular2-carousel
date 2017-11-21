@@ -14,24 +14,28 @@
     "copy": "copyfiles LICENSE README.md dist && cpx './package-dist.json' dist && renamer --find 'package-dist.json' --replace 'package.json' ./dist/*",
     "build": "npm run clean && npm run transpile && npm run package && npm run minify && npm run copy",
     "publish-to-npm": "cd dist && npm publish",
-    "build-and-publish" :"npm run build && npm run publish-to-npm"
+    "build-and-publish": "npm run build && npm run publish-to-npm"
   },
   "keywords": [
     "angular",
     "angular2",
     "angular 2",
+    "angular 4",
     "ng2",
-    "carousel"
+    "ngx",
+    "carousel",
+    "angular carousel"
   ],
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/kappys1/angular2-carrousel.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kappys1/angular2-carrousel.git"
   },
   "author": "Alejandro Marcos > Alejandro.marcos@tmtfactory",
   "contributors": [
     "https://codepen.io/nopr/pen/rfBJx",
     "https://desandro.github.io/3dtransforms/docs/carousel.html",
-    "https://medium.com/@cyrilletuzi/how-to-build-and-publish-an-angular-module-7ad19c0b4464"
+    "https://medium.com/@cyrilletuzi/how-to-build-and-publish-an-angular-module-7ad19c0b4464",
+    "http://idangero.us/swiper/"
   ],
   "license": "MIT",
   "devDependencies": {
