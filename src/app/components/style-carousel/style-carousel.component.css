@@ -51,3 +51,9 @@ h1{
   height: auto;
   width: 80%;
 }
+p.show-code{
+  color: #ab2300;
+}
+p{
+  font-size: 2vh;
+}

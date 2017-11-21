@@ -67,4 +67,10 @@ button{
   height: 80%;
   width: auto;
 }
+p.show-code{
+  color: #ab2300;
+}
+p{
+  font-size: 2vh;
+}
 

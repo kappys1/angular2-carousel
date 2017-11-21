@@ -1,3 +1,7 @@
+*{
+  font-size: 2vh;
+}
+
 :host{
   display: block;
   margin-top: 10vh;
@@ -66,4 +70,7 @@ h1{
 .item-carousel img{
   height: 80%;
   width: auto;
+}
+p.show-code{
+  color: #ab2300;
 }
