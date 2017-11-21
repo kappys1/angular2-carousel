@@ -22,7 +22,7 @@ webpackJsonp(["vendor"],{
  * Alex Marcos <alejandro.marcos@tmtfactory.com>
  * @ignore
  */
-var Carousel = /** @class */ (function () {
+var Carousel = (function () {
     function Carousel() {
         this._currdeg = 0;
         this._totalItems = 0;
@@ -182,7 +182,7 @@ var Carousel = /** @class */ (function () {
 
 
 // TODO: move chart.js to it's own component
-var CarouselComponent = /** @class */ (function () {
+var CarouselComponent = (function () {
     function CarouselComponent(componentElement) {
         this.componentElement = componentElement;
         this.carousel = new __WEBPACK_IMPORTED_MODULE_2__Carousel__["a" /* Carousel */]();
@@ -582,7 +582,7 @@ var __extends = (this && this.__extends) || (function () {
 
 
 
-var MyHammerConfig = /** @class */ (function (_super) {
+var MyHammerConfig = (function (_super) {
     __extends(MyHammerConfig, _super);
     function MyHammerConfig() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
@@ -594,7 +594,7 @@ var MyHammerConfig = /** @class */ (function (_super) {
     return MyHammerConfig;
 }(__WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["d" /* HammerGestureConfig */]));
 
-var CarouselModule = /** @class */ (function () {
+var CarouselModule = (function () {
     function CarouselModule() {
     }
     CarouselModule.decorators = [
