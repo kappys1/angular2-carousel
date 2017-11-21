@@ -1,0 +1,1 @@
+[{"__symbolic":"module","version":3,"metadata":{},"exports":[{"from":"./carousel.module","export":["CarouselModule"]},{"from":"./carousel.component","export":["CarouselComponent"]}]},{"__symbolic":"module","version":1,"metadata":{},"exports":[{"from":"./carousel.module","export":["CarouselModule"]},{"from":"./carousel.component","export":["CarouselComponent"]}]}]

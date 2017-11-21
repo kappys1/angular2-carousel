@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../src/index.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,cAAc,EAAE,MAAM,mBAAmB,CAAC;AACnD,OAAO,EAAE,iBAAiB,EAAE,MAAM,sBAAsB,CAAC","file":"index.js","sourceRoot":"","sourcesContent":["export { CarouselModule } from './carousel.module';\nexport { CarouselComponent } from './carousel.component';\n\n"]}

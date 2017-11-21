@@ -1,6 +1,6 @@
 {
   "name": "angular2-carousel",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Angular 2 Minimalist carousel",
   "main": "bundles/ng2-carousel-module.umd.js",
   "module": "index.js",
@@ -25,17 +25,20 @@
   }],
   "repository" : {
     "type" : "git",
-    "url" : "https://github.com/kappys1/angular2-carrousel.git"
+    "url" : "https://github.com/kappys1/angular2-carousel.git"
   },
   "homepage": "",
   "bugs": {
     "url": "https://github.com/kappys1/angular2-carrousel/issues"
   },
+  "dependencies" : {
+    "hammerjs": "^2.0.8",
+    "@types/hammerjs": "^2.0.35"
+
+  },
   "peerDependencies": {
     "@angular/core": ">=2.0.0 <5.0.0 || >=2.0.0-beta <5.0.0",
     "@angular/platform-browser": ">=2.0.0 <5.0.0 || >=2.0.0-beta <5.0.0",
-    "@types/hammerjs": "^2.0.35",
-    "hammerjs": "^2.0.8",
     "rxjs": "^5.0.1"
   }
 }
