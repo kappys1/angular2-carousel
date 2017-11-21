@@ -176,6 +176,7 @@ var appRoutes = [
         redirectTo: '/getStarted',
         pathMatch: 'full'
     },
+    { path: '**', component: __WEBPACK_IMPORTED_MODULE_1__pages_get_started_get_started_component__["a" /* GetStartedComponent */] }
 ];
 //# sourceMappingURL=app.routes.js.map
 
