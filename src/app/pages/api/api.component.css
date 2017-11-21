@@ -48,3 +48,12 @@ th, td {
   visibility: visible;
   height: auto;
 }
+
+@media(max-width:767px) {
+  th, td {
+    padding: 1.3vh 0vh;
+  }
+  table {
+    width: 100%;
+  }
+}

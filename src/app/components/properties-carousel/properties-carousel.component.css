@@ -33,9 +33,9 @@ h1{
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  -webkit-flex-wrap: nowrap;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
   justify-content: flex-start;
@@ -73,4 +73,22 @@ h1{
 }
 p.show-code{
   color: #ab2300;
+}
+@media(max-width:767px) {
+  :host carousel-component{
+    width: 60%;
+  }
+  .item-carousel{
+    width: 20vh!important;
+    height: 20vh!important;
+  }
+}
+@media(max-width:992px){
+  :host carousel-component{
+    width: 75%;
+  }
+  .item-carousel{
+    width: 30vh!important;
+    height: 30vh!important;
+  }
 }

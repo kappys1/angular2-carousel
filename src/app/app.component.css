@@ -105,6 +105,23 @@ footer{
   -ms-flex-align: center;
   align-items: center;
 }
+footer div{
+  text-align: center;
+}
 .content{
   padding: 2vh;
+}
+
+
+@media(max-width:767px) {
+  header h1{
+    font-size: 4vh;
+  }
+  header h2{
+    font-size: 2vh;
+  }
+  ng-adsense{
+    display: none;
+  }
+
 }
