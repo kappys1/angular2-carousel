@@ -57,9 +57,9 @@ p.show-code{
 p{
   font-size: 2vh;
 }
-@media(max-width:992px){
+@media(max-width:1200px){
   :host carousel-component{
-    width: 65%;
+    width: 60%;
   }
 }
 @media(max-width:767px) {
@@ -70,4 +70,5 @@ p{
     width: 30vh!important;
   }
 }
+
 

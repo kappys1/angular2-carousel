@@ -27,7 +27,7 @@ header h1{
 }
 
 header .content-icon{
-  display: inline-block;
+  /*display: inline-block;*/
   width: auto;
   height: 100%;
   padding: 4vh;
@@ -111,9 +111,28 @@ footer div{
 .content{
   padding: 2vh;
 }
+.content-icon{
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
 
-
-@media(max-width:767px) {
+@media(max-width:800px) {
   header h1{
     font-size: 4vh;
   }
@@ -123,5 +142,7 @@ footer div{
   ng-adsense{
     display: none;
   }
-
+  .content-icon .icon{
+    height: 50%;
+  }
 }

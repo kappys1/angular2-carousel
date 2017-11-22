@@ -56,7 +56,7 @@ p{
     height: 20vh!important;
   }
 }
-@media(max-width:992px){
+@media(max-width:1200px){
   :host carousel-component{
     width: 75%;
   }
