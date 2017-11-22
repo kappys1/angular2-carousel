@@ -2,7 +2,13 @@
 
 ### Before Upgrading once read the [Readme.md](https://github.com/kappys1/angular2-carousel/blob/master/README.md) file
 
-## 1.0.0
+## 1.0.8
+
+### Issues fixed
+* Improve move touching
+
+
+## 1.0.1
 
 ### Features
 * New Events
