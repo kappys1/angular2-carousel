@@ -31,8 +31,7 @@ import { AdsenseModule } from 'ng2-adsense';
   ],
   imports: [
     RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      appRoutes
     ),
     AdsenseModule.forRoot({
       adClient: 'ca-pub-7640562161899788',
