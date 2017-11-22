@@ -1,3 +1,6 @@
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
 :host{
   /*margin-bottom: 5vh;*/
   display: block;
@@ -23,9 +26,17 @@ header{
 header h1{
   font-weight: 100;
   color: white;
-  font-size: 5vh;
+  font-size: 4.5vh;
 }
 
+header h2{
+  letter-spacing: 2px;
+  font-size: 2vh;
+  color: white;
+}
+header ng-adsense{
+  display: none;
+}
 header .content-icon{
   /*display: inline-block;*/
   width: auto;
@@ -34,11 +45,9 @@ header .content-icon{
 
 }
 header img.icon{
-  height: 100%;
+  height: 50%;
 }
-header h2{
-  color: white;
-}
+
 header .social-bar a{
   margin-right: 1vh;
 }
@@ -47,7 +56,7 @@ nav.menu{
 }
 nav.menu .button-menu{
   color: white;
-  font-size: 2.3vh;
+  font-size: 2vh;
   padding: 1.3vh;
   cursor: pointer;
   background-color: transparent;
@@ -106,6 +115,7 @@ footer{
   padding: 3vh 0vh;
 }
 footer div{
+  font-size: 2vh ;
   text-align: center;
 }
 .content{
@@ -132,17 +142,50 @@ footer div{
   align-items: center;
 }
 
-@media(max-width:800px) {
+
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  header img.icon{
+    height: 75%;
+  }
   header h1{
-    font-size: 4vh;
+    font-size: 5vh;
   }
+  nav.menu .button-menu{
+    font-size: 1.7vh;
+  }
+  footer div{
+    font-size: 1.7vh ;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
   header h2{
-    font-size: 2vh;
+    font-size: 2.2vh;
   }
-  ng-adsense{
-    display: none;
+  header .social-bar img{
+    height: 2.2vh;
+    width: auto;
   }
   .content-icon .icon{
-    height: 50%;
+    height: 75%;
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  header ng-adsense{
+    display: block;
+  }
+}
+
+
+@media (min-width: 1600px) {
+  footer div,
+  nav.menu .button-menu{
+    font-size: 1.5vh;
   }
 }

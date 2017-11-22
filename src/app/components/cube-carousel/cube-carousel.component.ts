@@ -4,7 +4,7 @@ import {CarouselComponent} from "angular2-carousel";
 @Component({
   selector: 'app-cube-carousel',
   templateUrl: './cube-carousel.component.html',
-  styleUrls: ['./cube-carousel.component.css']
+  styleUrls: ['../simple-carousel/simple-carousel.component.css']
 })
 export class CubeCarouselComponent implements OnInit {
 

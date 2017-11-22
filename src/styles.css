@@ -36,7 +36,7 @@ button {
   background-color: #eee;
   border: none;
   padding: 5px 10px;
-  border-radius: 4px;
+  border-radius: 1px;
   cursor: pointer;
   cursor: hand;
 }

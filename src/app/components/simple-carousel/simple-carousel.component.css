@@ -2,12 +2,14 @@
   border: 1px solid black;
   display: block;
   overflow: hidden;
-  padding: 8vh;
-  width: 80%;
+  padding: 8vh 6vh;
+  width: 75%;
   margin: 0 auto;
+  margin-top: 2vh;
 }
 .button-toggle{
-  font-size: 2vh;
+  font-size: 1.8vh;
+  padding: 1vh;
   margin-bottom: 1vh;
 }
 h1{
@@ -15,6 +17,7 @@ h1{
   font-weight: 200;
   color: #1976d2;
 }
+
 .item-carousel{
   background-color: white;
   display: -ms-flexbox!important;
@@ -35,34 +38,83 @@ h1{
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 23vh!important;
+  height: 20vh!important;
 }
 .item-carousel img{
   height: 80%;
   width: auto;
 }
+
+.parameter-option{
+  margin-right: 2vh;
+}
+.parameters-content{
+  font-size: 1.8vh;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.parameters-content button,
+.parameters-content select,
+.parameters-content input{
+  font-size: 1.5vh;
+}
 p.show-code{
   color: #ab2300;
 }
 p{
-  font-size: 2vh;
+  font-size: 1.8vh;
 }
 
-@media(max-width:767px) {
+
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  h1{
+    font-size: 2.5vh;
+  }
+  .button-toggle,
+  p{
+    font-size: 1.7vh;
+  }
+  .parameters-content {
+    font-size: 1.7vh;
+  }
+
+
+}
+
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
   :host carousel-component{
     width: 60%;
   }
   .item-carousel{
-    width: 20vh!important;
-    height: 20vh!important;
+    width: 28vh!important;
+    height: 25vh!important;
+  }
+  h1{
+    font-size: 2.7vh;
+  }
+  .button-toggle{
+    font-size: 1.6vh;
   }
 }
 
-@media(max-width:1200px){
-  :host carousel-component{
-    width: 75%;
-  }
-  .item-carousel{
-    width: 30vh!important;
-    height: 30vh!important;
-  }
-}

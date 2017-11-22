@@ -4,7 +4,7 @@ import {CarouselComponent} from "angular2-carousel";
 @Component({
   selector: 'app-properties-carousel',
   templateUrl: './properties-carousel.component.html',
-  styleUrls: ['./properties-carousel.component.css']
+  styleUrls: ['../simple-carousel/simple-carousel.component.css']
 })
 export class PropertiesCarouselComponent implements OnInit,OnChanges {
 

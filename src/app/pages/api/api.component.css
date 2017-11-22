@@ -1,25 +1,25 @@
 h1{
-  font-size: 6vh;
+  font-size: 5vh;
   font-weight: 200;
 }
 
 h2{
-  font-size: 4vh;
+  font-size: 3vh;
   font-weight: 200;
   color: #1976d2;
 }
 h3{
-  font-size: 3vh;
+  font-size: 2vh;
   font-weight: 200;
   color: #1976d2;
 }
 
 p{
-  font-size: 2vh;
+  font-size: 1.8vh;
 }
 table{
-  width: 80%;
-  font-size: 2vh;
+  width: 100%;
+  font-size: 1.8vh;
   border-collapse: collapse;
   border-spacing: 0;
   color: #555;
@@ -28,7 +28,7 @@ table, th, td {
   border: 1px solid #555;
 }
 th, td {
-  padding: 2vh;
+  padding: 1vh;
 }
 .example-title{
   cursor: pointer;
@@ -48,12 +48,48 @@ th, td {
   visibility: visible;
   height: auto;
 }
+.code{
+  font-size: 1.8vh;
+}
 
-@media(max-width:767px) {
-  th, td {
-    padding: 1.3vh 0vh;
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  h1{
+    font-size: 4.5vh;
   }
-  table {
-    width: 100%;
+  h2{
+    font-size: 2.5vh;
   }
+  .code,
+  p{
+    font-size: 1.7vh;
+  }
+  table{
+    width: 95%;
+    font-size: 1.7vh;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  table{
+    width: 70%;
+    font-size: 1.7vh;
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1600px) {
+  table{
+    width: 70%;
+    font-size: 1.5vh;
+  }
+  .code,
+  p{
+    font-size: 1.5vh;
+  }
+
 }

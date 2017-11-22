@@ -25,7 +25,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ":host{\n  /*margin-bottom: 5vh;*/\n  display: block;\n}\nheader{\n  height: 25vh;\n  padding: 2vh;\n  overflow: hidden;\n  background-position: center bottom;\n  background: #1e70cd;\n  background: radial-gradient(ellipse at 0% 0%,#2c8dfb 0%,#1e70cd 50%);\n  box-sizing: border-box;\n  position: relative;\n  color: #fff;\n}\nheader h1{\n  font-weight: 100;\n  color: white;\n  font-size: 5vh;\n}\n\nheader .content-icon{\n  /*display: inline-block;*/\n  width: auto;\n  height: 100%;\n  padding: 4vh;\n\n}\nheader img.icon{\n  height: 100%;\n}\nheader h2{\n  color: white;\n}\nheader .social-bar a{\n  margin-right: 1vh;\n}\nnav.menu{\n  background-color: #1976d2;\n}\nnav.menu .button-menu{\n  color: white;\n  font-size: 2.3vh;\n  padding: 1.3vh;\n  cursor: pointer;\n  background-color: transparent;\n  border-radius: 0;\n}\nnav.menu .button-menu.active{\n  color: #1976d2;\n  background-color: white;\n}\n\nheader,\nheader .social-bar,\nnav.menu{\n  display: -ms-flexbox;\n  display: -webkit-box;\n  display: flex;\n  -ms-flex-direction: row;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  -ms-flex-wrap: nowrap;\n  flex-wrap: nowrap;\n  -ms-flex-pack: start;\n  -webkit-box-pack: start;\n          justify-content: flex-start;\n  -ms-flex-line-pack: stretch;\n  align-content: stretch;\n  -ms-flex-align: center;\n  -webkit-box-align: center;\n          align-items: center;\n}\n\nfooter{\n  color: white;\n  margin-top: 3vh;\n  background-color: #1976d2;\n  display: -ms-flexbox;\n  display: -webkit-box;\n  display: flex;\n  -ms-flex-direction: column;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n  -ms-flex-wrap: nowrap;\n  flex-wrap: nowrap;\n  -ms-flex-pack: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -ms-flex-line-pack: stretch;\n  align-content: stretch;\n  -ms-flex-align: center;\n  -webkit-box-align: center;\n          align-items: center;\n  padding: 3vh 0vh;\n}\nfooter div{\n  text-align: center;\n}\n.content{\n  padding: 2vh;\n}\n.content-icon{\n  display: -ms-flexbox;\n  display: -webkit-box;\n  display: flex;\n  -ms-flex-direction: row;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  -ms-flex-wrap: nowrap;\n  flex-wrap: nowrap;\n  -ms-flex-pack: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -ms-flex-line-pack: stretch;\n  align-content: stretch;\n  -ms-flex-align: center;\n  -webkit-box-align: center;\n          align-items: center;\n}\n\n@media(max-width:800px) {\n  header h1{\n    font-size: 4vh;\n  }\n  header h2{\n    font-size: 2vh;\n  }\n  ng-adsense{\n    display: none;\n  }\n  .content-icon .icon{\n    height: 50%;\n  }\n}\n", ""]);
+exports.push([module.i, "/* Extra small devices (phones, less than 768px) */\n/* No media query since this is the default in Bootstrap */\n\n:host{\n  /*margin-bottom: 5vh;*/\n  display: block;\n}\nheader{\n  height: 25vh;\n  padding: 2vh;\n  overflow: hidden;\n  background-position: center bottom;\n  background: #1e70cd;\n  background: radial-gradient(ellipse at 0% 0%,#2c8dfb 0%,#1e70cd 50%);\n  box-sizing: border-box;\n  position: relative;\n  color: #fff;\n}\nheader h1{\n  font-weight: 100;\n  color: white;\n  font-size: 4.5vh;\n}\n\nheader h2{\n  letter-spacing: 2px;\n  font-size: 2vh;\n  color: white;\n}\nheader ng-adsense{\n  display: none;\n}\nheader .content-icon{\n  /*display: inline-block;*/\n  width: auto;\n  height: 100%;\n  padding: 4vh;\n\n}\nheader img.icon{\n  height: 50%;\n}\n\nheader .social-bar a{\n  margin-right: 1vh;\n}\nnav.menu{\n  background-color: #1976d2;\n}\nnav.menu .button-menu{\n  color: white;\n  font-size: 2vh;\n  padding: 1.3vh;\n  cursor: pointer;\n  background-color: transparent;\n  border-radius: 0;\n}\nnav.menu .button-menu.active{\n  color: #1976d2;\n  background-color: white;\n}\n\nheader,\nheader .social-bar,\nnav.menu{\n  display: -ms-flexbox;\n  display: -webkit-box;\n  display: flex;\n  -ms-flex-direction: row;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  -ms-flex-wrap: nowrap;\n  flex-wrap: nowrap;\n  -ms-flex-pack: start;\n  -webkit-box-pack: start;\n          justify-content: flex-start;\n  -ms-flex-line-pack: stretch;\n  align-content: stretch;\n  -ms-flex-align: center;\n  -webkit-box-align: center;\n          align-items: center;\n}\n\nfooter{\n  color: white;\n  margin-top: 3vh;\n  background-color: #1976d2;\n  display: -ms-flexbox;\n  display: -webkit-box;\n  display: flex;\n  -ms-flex-direction: column;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n  -ms-flex-wrap: nowrap;\n  flex-wrap: nowrap;\n  -ms-flex-pack: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -ms-flex-line-pack: stretch;\n  align-content: stretch;\n  -ms-flex-align: center;\n  -webkit-box-align: center;\n          align-items: center;\n  padding: 3vh 0vh;\n}\nfooter div{\n  font-size: 2vh ;\n  text-align: center;\n}\n.content{\n  padding: 2vh;\n}\n.content-icon{\n  display: -ms-flexbox;\n  display: -webkit-box;\n  display: flex;\n  -ms-flex-direction: row;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  -ms-flex-wrap: nowrap;\n  flex-wrap: nowrap;\n  -ms-flex-pack: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -ms-flex-line-pack: stretch;\n  align-content: stretch;\n  -ms-flex-align: center;\n  -webkit-box-align: center;\n          align-items: center;\n}\n\n\n\n/* Small devices (tablets, 768px and up) */\n@media (min-width: 768px) {\n  header img.icon{\n    height: 75%;\n  }\n  header h1{\n    font-size: 5vh;\n  }\n  nav.menu .button-menu{\n    font-size: 1.7vh;\n  }\n  footer div{\n    font-size: 1.7vh ;\n  }\n}\n\n/* Medium devices (desktops, 992px and up) */\n@media (min-width: 992px) {\n\n  header h2{\n    font-size: 2.2vh;\n  }\n  header .social-bar img{\n    height: 2.2vh;\n    width: auto;\n  }\n  .content-icon .icon{\n    height: 75%;\n  }\n}\n\n/* Large devices (large desktops, 1200px and up) */\n@media (min-width: 1200px) {\n  header ng-adsense{\n    display: block;\n  }\n}\n\n\n@media (min-width: 1600px) {\n  footer div,\n  nav.menu .button-menu{\n    font-size: 1.5vh;\n  }\n}\n", ""]);
 
 // exports
 
@@ -188,24 +188,6 @@ var appRoutes = [
 
 /***/ }),
 
-/***/ "../../../../../src/app/components/cube-carousel/cube-carousel.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ":host carousel-component{\n  border: 1px solid black;\n  display: block;\n  overflow: hidden;\n  padding: 8vh;\n  width: 80vw;\n  margin: 0 auto;\n}\n.button-toggle{\n  font-size: 2vh;\n  margin-bottom: 1vh;\n}\nh1{\n  font-size: 3vh;\n  font-weight: 200;\n  color: #1976d2;\n}\n.item-carousel{\n  background-color: white!important;\n  display: -ms-flexbox!important;\n  display: -webkit-box!important;\n  display: flex!important;\n  -ms-flex-direction: row;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  -ms-flex-wrap: nowrap;\n  flex-wrap: nowrap;\n  -ms-flex-pack: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -ms-flex-line-pack: stretch;\n  align-content: stretch;\n  -ms-flex-align: center;\n  -webkit-box-align: center;\n          align-items: center;\n\n}\n.item-carousel img{\n  height: 80%;\n  width: auto;\n}\np.show-code{\n  color: #ab2300;\n}\np{\n  font-size: 2vh;\n}\n@media(max-width:767px) {\n  :host carousel-component{\n    width: 60%;\n  }\n  .item-carousel{\n    width: 20vh!important;\n    height: 20vh!important;\n  }\n}\n@media(max-width:1200px){\n  :host carousel-component{\n    width: 75%;\n  }\n  .item-carousel{\n    width: 30vh!important;\n    height: 30vh!important;\n  }\n}\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
 /***/ "../../../../../src/app/components/cube-carousel/cube-carousel.component.html":
 /***/ (function(module, exports) {
 
@@ -247,7 +229,7 @@ var CubeCarouselComponent = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-cube-carousel',
             template: __webpack_require__("../../../../../src/app/components/cube-carousel/cube-carousel.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/components/cube-carousel/cube-carousel.component.css")]
+            styles: [__webpack_require__("../../../../../src/app/components/simple-carousel/simple-carousel.component.css")]
         }),
         __metadata("design:paramtypes", [])
     ], CubeCarouselComponent);
@@ -256,24 +238,6 @@ var CubeCarouselComponent = (function () {
 }());
 
 //# sourceMappingURL=cube-carousel.component.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/components/functions-carousel/functions-carousel.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ":host{\n  display: block;\n  margin-top: 10vh;\n}\n:host carousel-component{\n  border: 1px solid black;\n  display: block;\n  overflow: hidden;\n  padding: 8vh;\n  width: 80vw;\n  margin: 0 auto;\n  margin-top: 2vh;\n}\nh1{\n  font-size: 3vh;\n  font-weight: 200;\n  color: #1976d2;\n}\nbutton{\n  font-size: 2vh;\n}\n.parameter-option{\n  margin-right: 2vh;\n}\n.parameters-content{\n  display: -ms-flexbox;\n  display: -webkit-box;\n  display: flex;\n  -ms-flex-direction: row;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  -ms-flex-wrap: nowrap;\n  flex-wrap: nowrap;\n  -ms-flex-pack: start;\n  -webkit-box-pack: start;\n          justify-content: flex-start;\n  -ms-flex-line-pack: stretch;\n  align-content: stretch;\n  -ms-flex-align: center;\n  -webkit-box-align: center;\n          align-items: center;\n}\n:host carousel-component .item-carousel{\n  background-color: white;\n  display: -ms-flexbox!important;\n  display: -webkit-box!important;\n  display: flex!important;\n  -ms-flex-direction: row;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  -ms-flex-wrap: nowrap;\n  flex-wrap: nowrap;\n  -ms-flex-pack: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -ms-flex-line-pack: stretch;\n  align-content: stretch;\n  -ms-flex-align: center;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.item-carousel img{\n  height: 80%;\n  width: auto;\n}\np.show-code{\n  color: #ab2300;\n}\np{\n  font-size: 2vh;\n}\n\n@media(max-width:767px) {\n  :host carousel-component{\n    width: 60%;\n  }\n  .item-carousel{\n    width: 20vh!important;\n    height: 20vh!important;\n  }\n}\n@media(max-width:1200px){\n  :host carousel-component{\n    width: 75%;\n  }\n  .item-carousel{\n    width: 30vh!important;\n    height: 30vh!important;\n  }\n}\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
 
 /***/ }),
 
@@ -321,7 +285,7 @@ var FunctionsCarouselComponent = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-functions-carousel',
             template: __webpack_require__("../../../../../src/app/components/functions-carousel/functions-carousel.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/components/functions-carousel/functions-carousel.component.css")]
+            styles: [__webpack_require__("../../../../../src/app/components/simple-carousel/simple-carousel.component.css")]
         }),
         __metadata("design:paramtypes", [])
     ], FunctionsCarouselComponent);
@@ -330,24 +294,6 @@ var FunctionsCarouselComponent = (function () {
 }());
 
 //# sourceMappingURL=functions-carousel.component.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/components/properties-carousel/properties-carousel.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "*{\n  font-size: 2vh;\n}\n\n:host{\n  display: block;\n  margin-top: 10vh;\n}\n:host carousel-component{\n  border: 1px solid black;\n  display: block;\n  overflow: hidden;\n  padding: 8vh;\n  width: 80vw;\n  margin: 0 auto;\n  margin-top: 2vh;\n}\nbutton{\n  font-size: 2vh;\n}\nh1{\n  font-size: 3vh;\n  font-weight: 200;\n  color: #1976d2;\n}\n.parameter-option{\n  margin-right: 2vh;\n}\n.parameters-content{\n  display: -ms-flexbox;\n  display: -webkit-box;\n  display: flex;\n  -ms-flex-direction: row;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n  flex-wrap: wrap;\n  -ms-flex-pack: start;\n  -webkit-box-pack: start;\n          justify-content: flex-start;\n  -ms-flex-line-pack: stretch;\n  align-content: stretch;\n  -ms-flex-align: center;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.item-carousel{\n  background-color: white;\n  display: -ms-flexbox !important;;\n  display: -webkit-box !important;;\n  display: flex !important;\n  -ms-flex-direction: row;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  -ms-flex-wrap: nowrap;\n  flex-wrap: nowrap;\n  -ms-flex-pack: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -ms-flex-line-pack: stretch;\n  align-content: stretch;\n  -ms-flex-align: center;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.item-carousel img{\n  height: 80%;\n  width: auto;\n}\np.show-code{\n  color: #ab2300;\n}\n@media(max-width:767px) {\n  :host carousel-component{\n    width: 60%;\n  }\n  .item-carousel{\n    width: 20vh!important;\n    height: 20vh!important;\n  }\n}\n@media(max-width:1200px){\n  :host carousel-component{\n    width: 75%;\n  }\n  .item-carousel{\n    width: 30vh!important;\n    height: 30vh!important;\n  }\n}\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
 
 /***/ }),
 
@@ -400,7 +346,7 @@ var PropertiesCarouselComponent = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-properties-carousel',
             template: __webpack_require__("../../../../../src/app/components/properties-carousel/properties-carousel.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/components/properties-carousel/properties-carousel.component.css")]
+            styles: [__webpack_require__("../../../../../src/app/components/simple-carousel/simple-carousel.component.css")]
         }),
         __metadata("design:paramtypes", [])
     ], PropertiesCarouselComponent);
@@ -420,7 +366,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ":host carousel-component{\n  border: 1px solid black;\n  display: block;\n  overflow: hidden;\n  padding: 8vh;\n  width: 80%;\n  margin: 0 auto;\n}\n.button-toggle{\n  font-size: 2vh;\n  margin-bottom: 1vh;\n}\nh1{\n  font-size: 3vh;\n  font-weight: 200;\n  color: #1976d2;\n}\n.item-carousel{\n  background-color: white;\n  display: -ms-flexbox!important;\n  display: -webkit-box!important;\n  display: flex!important;\n  -ms-flex-direction: row;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  -ms-flex-wrap: nowrap;\n  flex-wrap: nowrap;\n  -ms-flex-pack: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -ms-flex-line-pack: stretch;\n  align-content: stretch;\n  -ms-flex-align: center;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.item-carousel img{\n  height: 80%;\n  width: auto;\n}\np.show-code{\n  color: #ab2300;\n}\np{\n  font-size: 2vh;\n}\n\n@media(max-width:767px) {\n  :host carousel-component{\n    width: 60%;\n  }\n  .item-carousel{\n    width: 20vh!important;\n    height: 20vh!important;\n  }\n}\n\n@media(max-width:1200px){\n  :host carousel-component{\n    width: 75%;\n  }\n  .item-carousel{\n    width: 30vh!important;\n    height: 30vh!important;\n  }\n}\n", ""]);
+exports.push([module.i, ":host carousel-component{\n  border: 1px solid black;\n  display: block;\n  overflow: hidden;\n  padding: 8vh 6vh;\n  width: 75%;\n  margin: 0 auto;\n  margin-top: 2vh;\n}\n.button-toggle{\n  font-size: 1.8vh;\n  padding: 1vh;\n  margin-bottom: 1vh;\n}\nh1{\n  font-size: 3vh;\n  font-weight: 200;\n  color: #1976d2;\n}\n\n.item-carousel{\n  background-color: white;\n  display: -ms-flexbox!important;\n  display: -webkit-box!important;\n  display: flex!important;\n  -ms-flex-direction: row;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  -ms-flex-wrap: nowrap;\n  flex-wrap: nowrap;\n  -ms-flex-pack: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -ms-flex-line-pack: stretch;\n  align-content: stretch;\n  -ms-flex-align: center;\n  -webkit-box-align: center;\n          align-items: center;\n  width: 23vh!important;\n  height: 20vh!important;\n}\n.item-carousel img{\n  height: 80%;\n  width: auto;\n}\n\n.parameter-option{\n  margin-right: 2vh;\n}\n.parameters-content{\n  font-size: 1.8vh;\n  display: -ms-flexbox;\n  display: -webkit-box;\n  display: flex;\n  -ms-flex-direction: row;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n  flex-wrap: wrap;\n  -ms-flex-pack: start;\n  -webkit-box-pack: start;\n          justify-content: flex-start;\n  -ms-flex-line-pack: stretch;\n  align-content: stretch;\n  -ms-flex-align: center;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.parameters-content button,\n.parameters-content select,\n.parameters-content input{\n  font-size: 1.5vh;\n}\np.show-code{\n  color: #ab2300;\n}\np{\n  font-size: 1.8vh;\n}\n\n\n\n/* Small devices (tablets, 768px and up) */\n@media (min-width: 768px) {\n  h1{\n    font-size: 2.5vh;\n  }\n  .button-toggle,\n  p{\n    font-size: 1.7vh;\n  }\n  .parameters-content {\n    font-size: 1.7vh;\n  }\n\n\n}\n\n\n/* Large devices (large desktops, 1200px and up) */\n@media (min-width: 1200px) {\n  :host carousel-component{\n    width: 60%;\n  }\n  .item-carousel{\n    width: 28vh!important;\n    height: 25vh!important;\n  }\n  h1{\n    font-size: 2.7vh;\n  }\n  .button-toggle{\n    font-size: 1.6vh;\n  }\n}\n\n", ""]);
 
 // exports
 
@@ -483,24 +429,6 @@ var SimpleCarouselComponent = (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/components/style-carousel/style-carousel.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ":host carousel-component{\n  border: 1px solid black;\n  display: block;\n  overflow: hidden;\n  padding: 13vh;\n  width: 80vw;\n  margin: 0 auto;\n}\n.button-toggle{\n  font-size: 2vh;\n  margin-bottom: 1vh;\n}\nh1{\n  font-size: 3vh;\n  font-weight: 200;\n  color: #1976d2;\n}\n.item-carousel{\n  background-color: white;\n  width: 40vh!important;\n  height: 20vh!important;\n  top: 0vh;\n  transition: all 500ms!important;\n}\n.item-carousel.actual{\n  display: -ms-flexbox!important;\n  display: -webkit-box!important;\n  display: flex!important;\n  -ms-flex-direction: row;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  -ms-flex-wrap: nowrap;\n  flex-wrap: nowrap;\n  -ms-flex-pack: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -ms-flex-line-pack: stretch;\n  align-content: stretch;\n  -ms-flex-align: center;\n  -webkit-box-align: center;\n          align-items: center;\n  height: 30vh!important;\n  top:-5vh;\n}\n.item-carousel img{\n  height: auto;\n  width: 80%;\n}\np.show-code{\n  color: #ab2300;\n}\np{\n  font-size: 2vh;\n}\n@media(max-width:1200px){\n  :host carousel-component{\n    width: 60%;\n  }\n}\n@media(max-width:767px) {\n  :host carousel-component{\n    width: 50%;\n  }\n  .item-carousel{\n    width: 30vh!important;\n  }\n}\n\n\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
 /***/ "../../../../../src/app/components/style-carousel/style-carousel.component.html":
 /***/ (function(module, exports) {
 
@@ -533,7 +461,7 @@ var StyleCarouselComponent = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-style-carousel',
             template: __webpack_require__("../../../../../src/app/components/style-carousel/style-carousel.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/components/style-carousel/style-carousel.component.css")]
+            styles: [__webpack_require__("../../../../../src/app/components/simple-carousel/simple-carousel.component.css")]
         }),
         __metadata("design:paramtypes", [])
     ], StyleCarouselComponent);
@@ -552,7 +480,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "h1{\n  font-size: 6vh;\n  font-weight: 200;\n}\n\nh2{\n  font-size: 4vh;\n  font-weight: 200;\n  color: #1976d2;\n}\nh3{\n  font-size: 3vh;\n  font-weight: 200;\n  color: #1976d2;\n}\n\np{\n  font-size: 2vh;\n}\ntable{\n  width: 80%;\n  font-size: 2vh;\n  border-collapse: collapse;\n  border-spacing: 0;\n  color: #555;\n}\ntable, th, td {\n  border: 1px solid #555;\n}\nth, td {\n  padding: 2vh;\n}\n.example-title{\n  cursor: pointer;\n}\n.content-example{\n  opacity: 0;\n  height: 0vh;\n  overflow: hidden;\n  visibility: hidden;\n  transition: opacity 300ms, height 300ms;\n}\n.content-example.show{\n  opacity: 1;\n  visibility: visible;\n  height: auto;\n}\n\n@media(max-width:767px) {\n  th, td {\n    padding: 1.3vh 0vh;\n  }\n  table {\n    width: 100%;\n  }\n}\n", ""]);
+exports.push([module.i, "h1{\n  font-size: 5vh;\n  font-weight: 200;\n}\n\nh2{\n  font-size: 3vh;\n  font-weight: 200;\n  color: #1976d2;\n}\nh3{\n  font-size: 2vh;\n  font-weight: 200;\n  color: #1976d2;\n}\n\np{\n  font-size: 1.8vh;\n}\ntable{\n  width: 100%;\n  font-size: 1.8vh;\n  border-collapse: collapse;\n  border-spacing: 0;\n  color: #555;\n}\ntable, th, td {\n  border: 1px solid #555;\n}\nth, td {\n  padding: 1vh;\n}\n.example-title{\n  cursor: pointer;\n}\n.content-example{\n  opacity: 0;\n  height: 0vh;\n  overflow: hidden;\n  visibility: hidden;\n  transition: opacity 300ms, height 300ms;\n}\n.content-example.show{\n  opacity: 1;\n  visibility: visible;\n  height: auto;\n}\n.code{\n  font-size: 1.8vh;\n}\n\n/* Extra small devices (phones, less than 768px) */\n/* No media query since this is the default in Bootstrap */\n\n/* Small devices (tablets, 768px and up) */\n@media (min-width: 768px) {\n  h1{\n    font-size: 4.5vh;\n  }\n  h2{\n    font-size: 2.5vh;\n  }\n  .code,\n  p{\n    font-size: 1.7vh;\n  }\n  table{\n    width: 95%;\n    font-size: 1.7vh;\n  }\n}\n\n/* Medium devices (desktops, 992px and up) */\n@media (min-width: 992px) {\n  table{\n    width: 70%;\n    font-size: 1.7vh;\n  }\n}\n\n/* Large devices (large desktops, 1200px and up) */\n@media (min-width: 1600px) {\n  table{\n    width: 70%;\n    font-size: 1.5vh;\n  }\n  .code,\n  p{\n    font-size: 1.5vh;\n  }\n\n}\n", ""]);
 
 // exports
 
@@ -620,7 +548,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "h1{\n  font-size: 5vh;\n  font-weight: 200;\n}\n", ""]);
+exports.push([module.i, "h1{\n  font-size: 5vh;\n  font-weight: 200;\n}\n\n/* Small devices (tablets, 768px and up) */\n@media (min-width: 768px) {\n  h1{\n    font-size: 4vh;\n\n  }\n}\n", ""]);
 
 // exports
 
@@ -681,7 +609,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "*{\n  font-size: 2vh;\n}\nh1{\n  font-size: 6vh;\n  font-weight: 200;\n}\n\nh2{\n  font-size: 4vh;\n  font-weight: 200;\n  color: #1976d2;\n}\n\nli{\n  margin-top: 2vh;\n}\n\n", ""]);
+exports.push([module.i, "*{\n  font-size: 2vh;\n}\nh1{\n  font-size: 5vh;\n  font-weight: 200;\n}\n\nh2{\n  font-size: 3vh;\n  font-weight: 200;\n  color: #1976d2;\n}\n\nli{\n  margin-top: 2vh;\n}\n\n/* Extra small devices (phones, less than 768px) */\n/* No media query since this is the default in Bootstrap */\n\n/* Small devices (tablets, 768px and up) */\n@media (min-width: 768px) {\n  *{\n    font-size: 1.8vh;\n  }\n\n}\n\n/* Medium devices (desktops, 992px and up) */\n@media (min-width: 992px) {\n  *{\n    font-size: 2vh;\n  }\n}\n\n/* Large devices (large desktops, 1200px and up) */\n@media (min-width: 1200px) {\n  *{\n    font-size: 1.8vh;\n  }\n}\n\n\n@media (min-width: 1600px) {\n  h1{\n    font-size: 4vh;\n  }\n  h2{\n    font-size: 2.5vh;\n  }\n  *{\n    font-size: 1.5vh;\n  }\n}\n", ""]);
 
 // exports
 
@@ -694,7 +622,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pages/get-started/get-started.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Getting Started with Angular Carousel</h1>\n<h2>1a Download and Install</h2>\n<p>First, you need download library:</p>\n<ul>\n  <li>We can download them from <a href=\"https://github.com/kappys1/angular2-carousel\">Swiper GitHub repository</a></li>\n  <li>\n    Or, using NPM\n    <pre>\n      <div class=\"code hljs ruby\">\n        npm install --save angular2-carrousel\n      </div>\n    </pre>\n  </li>\n  <li>\n    Or, using System.js, in your config.js\n    <pre>\n      <div class=\"code hljs ruby\" [innerHTML]=\"systemjsImport | safeHtml\">\n\n      </div>\n    </pre>\n  </li>\n</ul>\nIn the downloaded/installed package we need files from the dist/ folder.\n\n<h2>2a Usage</h2>\n<p>First tou need to provide the CarouselModule to your desired Module</p>\n<pre >\n      <div class=\"code hljs ruby\" [innerHTML]=\"html | safeHtml\">\n\n      </div>\n</pre>\n<h2>3. Add Carousel HTML Layout</h2>\n<p>Now, you can use CarouselModule as follow:</p>\n<pre >\n      <div class=\"code hljs ruby\" [innerHTML]=\"html2 | safeHtml\">\n\n      </div>\n</pre>\n<p><b>All slides of carousel must have \"<i>.item-carousel</i>\" </b></p>\n<b><a href=\"https://embed.plnkr.co/CPWvmndIgpsglCvLChhc/\">Preview plnkr</a></b>\n"
+module.exports = "<h1>Getting Started with Angular Carousel</h1>\n<h2>1a Download and Install</h2>\n<p>First, you need download library:</p>\n<ul>\n  <li>We can download them from <a href=\"https://github.com/kappys1/angular2-carousel\">Swiper GitHub repository</a></li>\n  <li>\n    Or, using NPM\n    <pre>\n      <div class=\"code hljs ruby\">\n        npm install --save angular2-carrousel\n      </div>\n    </pre>\n  </li>\n  <li>\n    Or, using System.js, in your config.js\n    <pre>\n      <div class=\"code hljs ruby\" [innerHTML]=\"systemjsImport | safeHtml\">\n\n      </div>\n    </pre>\n  </li>\n</ul>\n<p>In the downloaded/installed package we need files from the dist/ folder.</p>\n\n<h2>2a Usage</h2>\n<p>First tou need to provide the CarouselModule to your desired Module</p>\n<pre >\n      <div class=\"code hljs ruby\" [innerHTML]=\"html | safeHtml\">\n\n      </div>\n</pre>\n<h2>3. Add Carousel HTML Layout</h2>\n<p>Now, you can use CarouselModule as follow:</p>\n<pre >\n      <div class=\"code hljs ruby\" [innerHTML]=\"html2 | safeHtml\">\n\n      </div>\n</pre>\n<p><b>All slides of carousel must have \"<i>.item-carousel</i>\" </b></p>\n<b><a href=\"https://embed.plnkr.co/CPWvmndIgpsglCvLChhc/\">Preview plnkr</a></b>\n"
 
 /***/ }),
 

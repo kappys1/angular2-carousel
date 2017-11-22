@@ -4,7 +4,7 @@ import {CarouselComponent} from "angular2-carousel";
 @Component({
   selector: 'app-functions-carousel',
   templateUrl: './functions-carousel.component.html',
-  styleUrls: ['./functions-carousel.component.css']
+  styleUrls: ['../simple-carousel/simple-carousel.component.css']
 })
 export class FunctionsCarouselComponent implements OnInit {
 
