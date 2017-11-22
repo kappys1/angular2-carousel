@@ -294,7 +294,7 @@ var CarouselComponent = (function () {
     CarouselComponent.prototype.rotate = function (e) {
         if (!this.carousel.lockSlides) {
             var velocity = this.carousel.isHorizontal ? e.velocityX : -e.velocityY;
-            this.setNewDeg(this.carousel.currdeg + velocity);
+            this.setNewDeg(this.carousel.currdeg + velocity * window.devicePixelRatio);
             this.moveCarrousel(this.carousel.currdeg);
             if (e.isFinal) {
                 if (this.endInSlide) {
