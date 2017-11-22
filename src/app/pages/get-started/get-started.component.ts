@@ -33,6 +33,13 @@ export class GetStartedComponent implements OnInit {
           \< /carousel-component\>
       `;
 
+  systemjsImport = "" +
+    "System.config({\n" +
+    "    map:{\n" +
+    "        'hammerjs': 'npm:hammerjs@2.0.8/hammer.js',\n" +
+    "        'angular2-carousel' : 'https://npmcdn.com/angular2-carousel/bundles/ng2-carousel-module.umd.js'\n" +
+    "    }\n" +
+    "})";
   constructor() {}
 
   ngOnInit() {

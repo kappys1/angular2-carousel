@@ -85,7 +85,6 @@ footer{
   color: white;
   margin-top: 3vh;
   background-color: #1976d2;
-  height: 5vh;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
@@ -104,6 +103,7 @@ footer{
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+  padding: 3vh 0vh;
 }
 footer div{
   text-align: center;
