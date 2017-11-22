@@ -133,8 +133,7 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_14__components_style_carousel_style_carousel_component__["a" /* StyleCarouselComponent */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_5__angular_router__["a" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_6__app_routes__["a" /* appRoutes */], { enableTracing: true } // <-- debugging purposes only
-                ),
+                __WEBPACK_IMPORTED_MODULE_5__angular_router__["a" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_6__app_routes__["a" /* appRoutes */]),
                 __WEBPACK_IMPORTED_MODULE_15_ng2_adsense__["a" /* AdsenseModule */].forRoot({
                     adClient: 'ca-pub-7640562161899788',
                     adSlot: 7259870550
