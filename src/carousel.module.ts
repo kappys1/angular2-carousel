@@ -5,7 +5,6 @@
  */
 
 import {NgModule,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
-
 import { CarouselComponent } from './carousel.component';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import * as Hammer from 'hammerjs';

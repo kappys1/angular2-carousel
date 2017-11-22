@@ -1,3 +1,12 @@
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 /**
  * :tmtfactory) © 2017
  * Alex Marcos <alejandro.marcos@tmtfactory.com>
@@ -6,7 +15,6 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import * as Hammer from 'hammerjs';
 import { Carousel } from "./Carousel";
-// TODO: move chart.js to it's own component
 var CarouselComponent = (function () {
     function CarouselComponent(componentElement) {
         this.componentElement = componentElement;
@@ -114,10 +122,11 @@ var CarouselComponent = (function () {
     CarouselComponent.prototype.initEventsPan = function () {
         var hammertime = new Hammer(this.carouselElm.nativeElement);
         hammertime.on('pan', this.rotate.bind(this));
-        hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+        hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL, threshold: 0 });
     };
     CarouselComponent.prototype.rotate = function (e) {
         if (!this.carousel.lockSlides) {
+            console.log(e);
             var velocity = this.carousel.isHorizontal ? e.velocityX : -e.velocityY;
             this.setNewDeg(this.carousel.currdeg + velocity);
             this.moveCarrousel(this.carousel.currdeg);
@@ -320,56 +329,149 @@ var CarouselComponent = (function () {
             }
         });
     };
-    CarouselComponent.decorators = [
-        { type: Component, args: [{
-                    selector: 'carousel-component',
-                    styles: ["\n        :host{\n            display: flex;\n        }\n        :host .container {\n            margin: 0 auto;\n            width: 600px;\n            height: 400px;\n            position: relative;\n        }\n\n\n        :host .container .carousel {\n            height: 100%;\n            width: 100%;\n            position: absolute;\n            -webkit-transform-style: preserve-3d;\n            -moz-transform-style: preserve-3d;\n            -o-transform-style: preserve-3d;\n            transform-style: preserve-3d;\n \n        }\n        :host.ready .carousel {\n            -webkit-transition: -webkit-transform 300ms;\n            -moz-transition:-moz-transform 300ms;\n            -o-transition: -o-transform 300ms;\n            transition: transform 300ms;\n        }\n        :host .container .carousel ::content >>> .item-carousel {\n            display: block;\n            position: absolute;\n            border:1px solid black;\n            width: 100%;\n            height: 100%;\n            text-align: center;\n            transform-style: preserve-3d;\n            overflow: hidden;\n            opacity: 0;\n        }\n        :host.ready .carousel ::content >>> .item-carousel {\n            -webkit-transition: opacity 300ms, -webkit-transform 300ms;\n            -moz-transition: opacity 300ms, -moz-transform 300ms;\n            -o-transition: opacity 300ms, -o-transform 300ms;\n            transition: opacity 300ms, transform 300ms;\n        }\n        \n        :host .container .carousel ::content >>> .item-carousel img{\n            user-drag: none;\n            user-select: none;\n            -moz-user-select: none;\n            -webkit-user-drag: none;\n            -webkit-user-select: none;\n            -ms-user-select: none;\n        }\n        \n        :host .container .carousel ::content >>> .item-carousel.next,\n        :host .container .carousel ::content >>> .item-carousel.prev,\n        :host .container .carousel ::content >>> .item-carousel.actual{\n            opacity: 0.95;\n        }\n\n\n    "],
-                    template: '<div class="container" #container>\n' +
-                        '  <div class="carousel" #carousel  >\n' +
-                        '    <!--<div class="item {{item.toLowerCase()}} {{updateCssShowSlides(i)}}" *ngFor="let item of data; let i = index">{{item}}</div>-->\n' +
-                        '    <ng-content select=".item-carousel"></ng-content>\n' +
-                        '  </div>\n' +
-                        '</div>',
-                },] },
-    ];
-    /** @nocollapse */
-    CarouselComponent.ctorParameters = function () { return [
-        { type: ElementRef, },
-    ]; };
-    CarouselComponent.propDecorators = {
-        'morePairSlides': [{ type: Input, args: ["morePairSlides",] },],
-        'angle': [{ type: Input, args: ["angle",] },],
-        'ratioScale': [{ type: Input, args: ["ratioScale",] },],
-        'margin': [{ type: Input, args: ["margin",] },],
-        'perspective': [{ type: Input, args: ["perspective",] },],
-        'endInSlide': [{ type: Input, args: ["endInSlide",] },],
-        'timeToSlide': [{ type: Input, args: ["timeToSlide",] },],
-        'lockSlides': [{ type: Input, args: ["lockSlides",] },],
-        'initialSlide': [{ type: Input, args: ["initialSlide",] },],
-        'loop': [{ type: Input, args: ["loop",] },],
-        'axis': [{ type: Input, args: ["mode",] },],
-        'onInitCarousel': [{ type: Output, args: ["onInit",] },],
-        'onReadyCarousel': [{ type: Output, args: ["onReady",] },],
-        'onChangePropertiesCarousel': [{ type: Output, args: ["onChangeProperties",] },],
-        'onSlideChange': [{ type: Output, args: ["onSlideChange",] },],
-        'onSlideCentered': [{ type: Output, args: ["onSlideCentered",] },],
-        'onTransitionStart': [{ type: Output, args: ["onTransitionStart",] },],
-        'onTransitionEnd': [{ type: Output, args: ["onTransitionEnd",] },],
-        'onSlideNextTransitionStart': [{ type: Output, args: ["onSlideNextTransitionStart",] },],
-        'onSlideNextTransitionEnd': [{ type: Output, args: ["onSlideNextTransitionEnd",] },],
-        'onSlidePrevTransitionStart': [{ type: Output, args: ["onSlidePrevTransitionStart",] },],
-        'onSlidePrevTransitionEnd': [{ type: Output, args: ["onSlidePrevTransitionEnd",] },],
-        'onSlideMove': [{ type: Output, args: ["onSlideMove",] },],
-        'onSlideMoveEnd': [{ type: Output, args: ["onSlideMoveEnd",] },],
-        'onSlideMoveStart': [{ type: Output, args: ["onSlideMoveStart",] },],
-        'onTouchMove': [{ type: Output, args: ["onTouchMove",] },],
-        'onTouchStart': [{ type: Output, args: ["onTouchStart",] },],
-        'onTouchEnd': [{ type: Output, args: ["onTouchEnd",] },],
-        'onReachBeginning': [{ type: Output, args: ["onReachBeginning",] },],
-        'onReachEnd': [{ type: Output, args: ["onReachEnd",] },],
-        'carouselElm': [{ type: ViewChild, args: ["carousel",] },],
-        'containerElm': [{ type: ViewChild, args: ["container",] },],
-    };
+    __decorate([
+        Input("morePairSlides"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "morePairSlides", void 0);
+    __decorate([
+        Input("angle"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "angle", void 0);
+    __decorate([
+        Input("ratioScale"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "ratioScale", void 0);
+    __decorate([
+        Input("margin"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "margin", void 0);
+    __decorate([
+        Input("perspective"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "perspective", void 0);
+    __decorate([
+        Input("endInSlide"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "endInSlide", void 0);
+    __decorate([
+        Input("timeToSlide"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "timeToSlide", void 0);
+    __decorate([
+        Input("lockSlides"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "lockSlides", void 0);
+    __decorate([
+        Input("initialSlide"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "initialSlide", void 0);
+    __decorate([
+        Input("loop"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "loop", void 0);
+    __decorate([
+        Input("mode"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "axis", void 0);
+    __decorate([
+        Output("onInit"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "onInitCarousel", void 0);
+    __decorate([
+        Output("onReady"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "onReadyCarousel", void 0);
+    __decorate([
+        Output("onChangeProperties"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "onChangePropertiesCarousel", void 0);
+    __decorate([
+        Output("onSlideChange"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "onSlideChange", void 0);
+    __decorate([
+        Output("onSlideCentered"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "onSlideCentered", void 0);
+    __decorate([
+        Output("onTransitionStart"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "onTransitionStart", void 0);
+    __decorate([
+        Output("onTransitionEnd"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "onTransitionEnd", void 0);
+    __decorate([
+        Output("onSlideNextTransitionStart"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "onSlideNextTransitionStart", void 0);
+    __decorate([
+        Output("onSlideNextTransitionEnd"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "onSlideNextTransitionEnd", void 0);
+    __decorate([
+        Output("onSlidePrevTransitionStart"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "onSlidePrevTransitionStart", void 0);
+    __decorate([
+        Output("onSlidePrevTransitionEnd"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "onSlidePrevTransitionEnd", void 0);
+    __decorate([
+        Output("onSlideMove"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "onSlideMove", void 0);
+    __decorate([
+        Output("onSlideMoveEnd"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "onSlideMoveEnd", void 0);
+    __decorate([
+        Output("onSlideMoveStart"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "onSlideMoveStart", void 0);
+    __decorate([
+        Output("onTouchMove"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "onTouchMove", void 0);
+    __decorate([
+        Output("onTouchStart"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "onTouchStart", void 0);
+    __decorate([
+        Output("onTouchEnd"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "onTouchEnd", void 0);
+    __decorate([
+        Output("onReachBeginning"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "onReachBeginning", void 0);
+    __decorate([
+        Output("onReachEnd"),
+        __metadata("design:type", Object)
+    ], CarouselComponent.prototype, "onReachEnd", void 0);
+    __decorate([
+        ViewChild("carousel"),
+        __metadata("design:type", ElementRef)
+    ], CarouselComponent.prototype, "carouselElm", void 0);
+    __decorate([
+        ViewChild("container"),
+        __metadata("design:type", ElementRef)
+    ], CarouselComponent.prototype, "containerElm", void 0);
+    CarouselComponent = __decorate([
+        Component({
+            selector: 'carousel-component',
+            styles: ["\n        :host{\n            display: flex;\n        }\n        :host .container {\n            margin: 0 auto;\n            width: 600px;\n            height: 400px;\n            position: relative;\n        }\n\n\n        :host .container .carousel {\n            height: 100%;\n            width: 100%;\n            position: absolute;\n            -webkit-transform-style: preserve-3d;\n            -moz-transform-style: preserve-3d;\n            -o-transform-style: preserve-3d;\n            transform-style: preserve-3d;\n \n        }\n        :host.ready .carousel {\n            -webkit-transition: -webkit-transform 300ms;\n            -moz-transition:-moz-transform 300ms;\n            -o-transition: -o-transform 300ms;\n            transition: transform 300ms;\n        }\n        :host .container .carousel ::content >>> .item-carousel {\n            display: block;\n            position: absolute;\n            border:1px solid black;\n            width: 100%;\n            height: 100%;\n            text-align: center;\n            transform-style: preserve-3d;\n            overflow: hidden;\n            opacity: 0;\n        }\n        :host.ready .carousel ::content >>> .item-carousel {\n            -webkit-transition: opacity 300ms, -webkit-transform 300ms;\n            -moz-transition: opacity 300ms, -moz-transform 300ms;\n            -o-transition: opacity 300ms, -o-transform 300ms;\n            transition: opacity 300ms, transform 300ms;\n        }\n        \n        :host .container .carousel ::content >>> .item-carousel img{\n            user-drag: none;\n            user-select: none;\n            -moz-user-select: none;\n            -webkit-user-drag: none;\n            -webkit-user-select: none;\n            -ms-user-select: none;\n        }\n        \n        :host .container .carousel ::content >>> .item-carousel.next,\n        :host .container .carousel ::content >>> .item-carousel.prev,\n        :host .container .carousel ::content >>> .item-carousel.actual{\n            opacity: 0.95;\n        }\n\n\n    "],
+            template: '<div class="container" #container>\n' +
+                '  <div class="carousel" #carousel  >\n' +
+                '    <!--<div class="item {{item.toLowerCase()}} {{updateCssShowSlides(i)}}" *ngFor="let item of data; let i = index">{{item}}</div>-->\n' +
+                '    <ng-content select=".item-carousel"></ng-content>\n' +
+                '  </div>\n' +
+                '</div>',
+        })
+        // TODO: move chart.js to it's own component
+        ,
+        __metadata("design:paramtypes", [ElementRef])
+    ], CarouselComponent);
     return CarouselComponent;
 }());
 export { CarouselComponent };

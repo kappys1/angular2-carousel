@@ -225,10 +225,11 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
   private initEventsPan(){
       let hammertime = new Hammer(this.carouselElm.nativeElement);
       hammertime.on('pan', this.rotate.bind(this));
-      hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+      hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL ,threshold:0});
   }
   private rotate(e : any){
     if(!this.carousel.lockSlides) {
+        console.log(e);
         let velocity = this.carousel.isHorizontal ? e.velocityX : -e.velocityY;
         this.setNewDeg(this.carousel.currdeg + velocity);
         this.moveCarrousel(this.carousel.currdeg);
