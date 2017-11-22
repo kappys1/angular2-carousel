@@ -229,7 +229,6 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
   }
   private rotate(e : any){
     if(!this.carousel.lockSlides) {
-        console.log(e);
         let velocity = this.carousel.isHorizontal ? e.velocityX : -e.velocityY;
         this.setNewDeg(this.carousel.currdeg + velocity);
         this.moveCarrousel(this.carousel.currdeg);

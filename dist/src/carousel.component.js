@@ -126,7 +126,6 @@ var CarouselComponent = (function () {
     };
     CarouselComponent.prototype.rotate = function (e) {
         if (!this.carousel.lockSlides) {
-            console.log(e);
             var velocity = this.carousel.isHorizontal ? e.velocityX : -e.velocityY;
             this.setNewDeg(this.carousel.currdeg + velocity);
             this.moveCarrousel(this.carousel.currdeg);
