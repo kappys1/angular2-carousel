@@ -200,22 +200,18 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
   }
 
   public update(){
+      this.setPerspectiveContainer();
       this.checkRotation();
+      this.carousel.items = Array.from(this.carouselElm.nativeElement.getElementsByClassName("item-carousel"));
+      this.carousel.totalItems = this.carousel.items.length;
       this.getmaxSizes();
+      this.carousel.lockSlides = this.lockSlides;
       this.setDegreesOnSlides();
       this.setTransformCarrousel(-this.carousel.degreesSlides[this.carousel.activeIndex]);
   }
 
-
-
   private configPlugin(){
-    this.setPerspectiveContainer();
-    this.checkRotation();
-    this.carousel.items = Array.from(this.carouselElm.nativeElement.getElementsByClassName("item-carousel"));
-    this.carousel.totalItems = this.carousel.items.length;
-    this.getmaxSizes();
-    this.carousel.lockSlides = this.lockSlides;
-    this.setDegreesOnSlides();
+    this.update();
     this.manageEvents();
     this.initSlidesOn();
     this.updateCssShowSlides();
@@ -303,8 +299,10 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
 
   private getmaxSizes(){
     this.carousel.items.map((val : any) =>{
-      let witdh = val.clientWidth;
-      let height = val.clientHeight;
+      let witdh = val.offsetWidth;
+      let height = val.offsetHeight;
+      this.carousel.maxWidthSize = 0;
+      this.carousel.maxHeigthSize = 0;
       if( witdh > this.carousel.maxWidthSize){
         this.carousel.maxWidthSize = witdh;
           this.carousel.totalWidth = this.carousel.items.length*this.carousel.maxWidthSize;
@@ -325,9 +323,8 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
     let panelSize = this.carousel.isHorizontal ? this.carousel.maxWidthSize:this.carousel.maxHeigthSize;
     this.radius = (Math.round( ( panelSize / 2 ) /
       Math.tan( Math.PI / (360/this.angle) ) )+this.margin);
-
+    this.carousel.degreesSlides=[];
     this.carousel.items.map((val : any,index : number) =>{
-      val.style.width = this.carousel.maxWidthSize;
       val.style.transform = this.rotationFn+"("+auxDegree+"deg) translateZ("+(this.radius)+"px)";
       val.style.webkitTransform = this.rotationFn+"("+auxDegree+"deg) translateZ("+(this.radius)+"px)";
       this.carousel.degreesSlides.push(auxDegree);
@@ -442,7 +439,11 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
               vm.onSlidePrevTransitionStart.emit(elm);
           }
       }
+    });
 
-    })
+    window.onresize = function(){
+          this.update();
+    }.bind(this);
+
   }
 }
