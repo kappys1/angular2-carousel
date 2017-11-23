@@ -95,6 +95,11 @@ p{
   height: 30vh!important;
   top:-2.5vh;
 }
+
+:host carousel-component.cube-mode.ready >>> .container{
+  perspective: 10vh!important;
+}
+
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   h1{
@@ -126,6 +131,12 @@ p{
   }
   .button-toggle{
     font-size: 1.6vh;
+  }
+
+}
+@media (min-width: 2000px) {
+  :host carousel-component.cube-mode.ready >>> .container{
+    perspective: 15vh!important;
   }
 }
 
