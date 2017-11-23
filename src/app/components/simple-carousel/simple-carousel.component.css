@@ -7,6 +7,7 @@
   margin: 0 auto;
   margin-top: 2vh;
 }
+
 .button-toggle{
   font-size: 1.8vh;
   padding: 1vh;
@@ -40,7 +41,9 @@ h1{
   align-items: center;
   width: 23vh!important;
   height: 20vh!important;
+  top:0vh;
 }
+
 .item-carousel img{
   height: 80%;
   width: auto;
@@ -82,8 +85,16 @@ p{
   font-size: 1.8vh;
 }
 
-
-
+:host carousel-component.style-carousel.ready .item-carousel{
+  -webkit-transition: all 500ms !important;
+  -moz-transition:all 500ms!important;
+  -o-transition: all 500ms!important;
+  transition: all 500ms!important;
+}
+:host carousel-component.style-carousel.ready .item-carousel.actual{
+  height: 30vh!important;
+  top:-2.5vh;
+}
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   h1{
