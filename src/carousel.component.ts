@@ -210,7 +210,16 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
       this.setTransformCarrousel(-this.carousel.degreesSlides[this.carousel.activeIndex]);
   }
 
+
+
   private configPlugin(){
+    // this.setPerspectiveContainer();
+    // this.checkRotation();
+    // this.carousel.items = Array.from(this.carouselElm.nativeElement.getElementsByClassName("item-carousel"));
+    // this.carousel.totalItems = this.carousel.items.length;
+    // this.getmaxSizes();
+    // this.carousel.lockSlides = this.lockSlides;
+    // this.setDegreesOnSlides();
     this.update();
     this.manageEvents();
     this.initSlidesOn();
@@ -440,10 +449,9 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
           }
       }
     });
-
-    window.onresize = function(){
-          this.update();
-    }.bind(this);
+    window.addEventListener("resize", function(){
+        this.update();
+    }.bind(this));
 
   }
 }

@@ -112,6 +112,13 @@ var CarouselComponent = (function () {
         this.setTransformCarrousel(-this.carousel.degreesSlides[this.carousel.activeIndex]);
     };
     CarouselComponent.prototype.configPlugin = function () {
+        // this.setPerspectiveContainer();
+        // this.checkRotation();
+        // this.carousel.items = Array.from(this.carouselElm.nativeElement.getElementsByClassName("item-carousel"));
+        // this.carousel.totalItems = this.carousel.items.length;
+        // this.getmaxSizes();
+        // this.carousel.lockSlides = this.lockSlides;
+        // this.setDegreesOnSlides();
         this.update();
         this.manageEvents();
         this.initSlidesOn();
@@ -327,9 +334,9 @@ var CarouselComponent = (function () {
                 }
             }
         });
-        window.onresize = function () {
+        window.addEventListener("resize", function () {
             this.update();
-        }.bind(this);
+        }.bind(this));
     };
     __decorate([
         Input("morePairSlides"),
