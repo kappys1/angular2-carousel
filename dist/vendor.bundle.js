@@ -269,12 +269,6 @@ var CarouselComponent = (function () {
         this.configPlugin();
     };
     CarouselComponent.prototype.update = function () {
-        this.checkRotation();
-        this.getmaxSizes();
-        this.setDegreesOnSlides();
-        this.setTransformCarrousel(-this.carousel.degreesSlides[this.carousel.activeIndex]);
-    };
-    CarouselComponent.prototype.configPlugin = function () {
         this.setPerspectiveContainer();
         this.checkRotation();
         this.carousel.items = Array.from(this.carouselElm.nativeElement.getElementsByClassName("item-carousel"));
@@ -282,6 +276,17 @@ var CarouselComponent = (function () {
         this.getmaxSizes();
         this.carousel.lockSlides = this.lockSlides;
         this.setDegreesOnSlides();
+        this.setTransformCarrousel(-this.carousel.degreesSlides[this.carousel.activeIndex]);
+    };
+    CarouselComponent.prototype.configPlugin = function () {
+        // this.setPerspectiveContainer();
+        // this.checkRotation();
+        // this.carousel.items = Array.from(this.carouselElm.nativeElement.getElementsByClassName("item-carousel"));
+        // this.carousel.totalItems = this.carousel.items.length;
+        // this.getmaxSizes();
+        // this.carousel.lockSlides = this.lockSlides;
+        // this.setDegreesOnSlides();
+        this.update();
         this.manageEvents();
         this.initSlidesOn();
         this.updateCssShowSlides();
@@ -361,8 +366,10 @@ var CarouselComponent = (function () {
     CarouselComponent.prototype.getmaxSizes = function () {
         var _this = this;
         this.carousel.items.map(function (val) {
-            var witdh = val.clientWidth;
-            var height = val.clientHeight;
+            var witdh = val.offsetWidth;
+            var height = val.offsetHeight;
+            _this.carousel.maxWidthSize = 0;
+            _this.carousel.maxHeigthSize = 0;
             if (witdh > _this.carousel.maxWidthSize) {
                 _this.carousel.maxWidthSize = witdh;
                 _this.carousel.totalWidth = _this.carousel.items.length * _this.carousel.maxWidthSize;
@@ -384,8 +391,8 @@ var CarouselComponent = (function () {
         var panelSize = this.carousel.isHorizontal ? this.carousel.maxWidthSize : this.carousel.maxHeigthSize;
         this.radius = (Math.round((panelSize / 2) /
             Math.tan(Math.PI / (360 / this.angle))) + this.margin);
+        this.carousel.degreesSlides = [];
         this.carousel.items.map(function (val, index) {
-            val.style.width = _this.carousel.maxWidthSize;
             val.style.transform = _this.rotationFn + "(" + auxDegree + "deg) translateZ(" + (_this.radius) + "px)";
             val.style.webkitTransform = _this.rotationFn + "(" + auxDegree + "deg) translateZ(" + (_this.radius) + "px)";
             _this.carousel.degreesSlides.push(auxDegree);
@@ -494,6 +501,9 @@ var CarouselComponent = (function () {
                 }
             }
         });
+        window.addEventListener("resize", function () {
+            this.update();
+        }.bind(this));
     };
     CarouselComponent.decorators = [
         { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */], args: [{

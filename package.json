@@ -1,6 +1,6 @@
 {
   "name": "angular-io-example",
-  "version": "1.0.0",
+  "version": "1.0.0gi",
   "private": true,
   "description": "Example project from an angular.io guide.",
   "scripts": {
@@ -34,7 +34,7 @@
     "@angular/upgrade": "~4.0.0",
     "@types/hammerjs": "^2.0.35",
     "angular-in-memory-web-api": "~0.5.0",
-    "angular2-carousel": "^1.0.8",
+    "angular2-carousel": "^1.0.9",
     "core-js": "^2.4.1",
     "hammerjs": "^2.0.8",
     "ng2-adsense": "^4.0.12",
