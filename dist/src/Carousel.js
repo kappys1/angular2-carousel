@@ -3,7 +3,7 @@
  * Alex Marcos <alejandro.marcos@tmtfactory.com>
  * @ignore
  */
-var Carousel = (function () {
+var Carousel = /** @class */ (function () {
     function Carousel() {
         this._currdeg = 0;
         this._totalItems = 0;

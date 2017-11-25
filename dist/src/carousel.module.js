@@ -23,7 +23,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CarouselComponent } from './carousel.component';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import * as Hammer from 'hammerjs';
-var MyHammerConfig = (function (_super) {
+var MyHammerConfig = /** @class */ (function (_super) {
     __extends(MyHammerConfig, _super);
     function MyHammerConfig() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
@@ -35,7 +35,7 @@ var MyHammerConfig = (function (_super) {
     return MyHammerConfig;
 }(HammerGestureConfig));
 export { MyHammerConfig };
-var CarouselModule = (function () {
+var CarouselModule = /** @class */ (function () {
     function CarouselModule() {
     }
     CarouselModule = __decorate([

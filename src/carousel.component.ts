@@ -166,6 +166,7 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
   public lockCarousel(val : boolean){
     this.carousel.lockSlides = val;
   }
+
   public slideNext(){
     if(this.checkLimitsCarrousel(this.carousel.activeIndex+1)){
       this.moveSlideTo(this.carousel.activeIndex+1);
@@ -232,6 +233,7 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
       hammertime.on('pan', this.rotate.bind(this));
       hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL ,threshold:0});
   }
+
   private rotate(e : any){
     if(!this.carousel.lockSlides) {
         let velocity = this.carousel.isHorizontal ? e.velocityX : -e.velocityY;

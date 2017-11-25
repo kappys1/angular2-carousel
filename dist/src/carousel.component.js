@@ -15,7 +15,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import * as Hammer from 'hammerjs';
 import { Carousel } from "./Carousel";
-var CarouselComponent = (function () {
+var CarouselComponent = /** @class */ (function () {
     function CarouselComponent(componentElement) {
         this.componentElement = componentElement;
         this.carousel = new Carousel();
