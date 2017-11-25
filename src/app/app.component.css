@@ -89,7 +89,11 @@ nav.menu{
   -ms-flex-align: center;
   align-items: center;
 }
-
+header .social-bar{
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
 footer{
   color: white;
   margin-top: 3vh;
@@ -141,7 +145,13 @@ footer div{
   -ms-flex-align: center;
   align-items: center;
 }
-
+.forkme{
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: none;
+  width: 15vh;
+}
 
 
 /* Small devices (tablets, 768px and up) */
@@ -158,6 +168,9 @@ footer div{
   footer div{
     font-size: 1.7vh ;
   }
+  .forkme{
+    display: block;
+  }
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -173,12 +186,18 @@ footer div{
   .content-icon .icon{
     height: 75%;
   }
+  .forkme{
+    width: 17vh;
+  }
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   header ng-adsense{
     display: block;
+  }
+  .forkme{
+    width: 19.5vh;
   }
 }
 
