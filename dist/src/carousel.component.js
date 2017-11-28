@@ -18,7 +18,6 @@ import { Carousel } from "./Carousel";
 var CarouselComponent = /** @class */ (function () {
     function CarouselComponent(componentElement) {
         this.componentElement = componentElement;
-        this.carousel = new Carousel();
         this.morePairSlides = 1;
         this.angle = 45;
         this.ratioScale = 1;
@@ -49,6 +48,7 @@ var CarouselComponent = /** @class */ (function () {
         this.onTouchEnd = new EventEmitter();
         this.onReachBeginning = new EventEmitter();
         this.onReachEnd = new EventEmitter();
+        this.carousel = new Carousel();
     }
     CarouselComponent.prototype.ngOnInit = function () {
         this.onInitCarousel.emit(this.carousel);
@@ -147,9 +147,11 @@ var CarouselComponent = /** @class */ (function () {
         }
         else if (this.initialSlide >= this.carousel.items.length) {
             this.carousel.activeIndex = this.carousel.items.length - 1;
+            this.initialSlide = this.carousel.activeIndex;
         }
         else {
             this.carousel.activeIndex = 0;
+            this.initialSlide = this.carousel.activeIndex;
         }
         var newDeg = this.carousel.activeIndex * this.angle;
         this.setNewDeg(-newDeg);

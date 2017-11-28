@@ -1,3 +1,5 @@
+var path = require( 'path' );
+console.log(path.resolve('../src/'));
 module.exports = () => {
     return {
         entry: {
@@ -18,6 +20,15 @@ module.exports = () => {
                         'ts-loader',
                         'angular2-template-loader'
                     ]
+                },
+                {
+                    test: /\.ts$/,
+                    use: {
+                        loader: 'istanbul-instrumenter-loader',
+                        options: { esModules: true }
+                    },
+                    enforce: 'post',
+                    exclude: /node_modules|\.spec\.ts$/,
                 },
                 {
                     test: /\.html$/,

@@ -90,7 +90,7 @@ import {Carousel} from "./Carousel";
 // TODO: move chart.js to it's own component
 export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
 
-  public carousel = new Carousel();
+  public carousel : Carousel;
   //carrousel radious
   private radius:any;
   private rotationFn : string;
@@ -137,7 +137,7 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
 
 
   constructor(private componentElement:ElementRef){
-
+    this.carousel = new Carousel();
   }
 
   ngOnInit(){
@@ -252,10 +252,13 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
     }
     else if(this.initialSlide >= this.carousel.items.length){
       this.carousel.activeIndex = this.carousel.items.length-1;
+      this.initialSlide = this.carousel.activeIndex;
     }
     else{
         this.carousel.activeIndex = 0;
+        this.initialSlide = this.carousel.activeIndex;
     }
+
     let newDeg = this.carousel.activeIndex*this.angle;
     this.setNewDeg(-newDeg);
     this.setTransformCarrousel(-newDeg);
