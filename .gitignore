@@ -192,7 +192,7 @@ node_modules
 .DS_Store
 npm-debug.log
 *.ngsummary.json
-dist/*
+!dist/*
 !dist/package.json
 src/*.*.ngfactory.*
 src/*.*.shim.*
