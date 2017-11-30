@@ -16,6 +16,8 @@ export declare class Carousel {
     private _activeIndex;
     private _lastIndex;
     private _lockSlides;
+    private _autoPlayIsRunning;
+    autoPlayIsRunning: boolean;
     currdeg: number;
     totalItems: number;
     isHorizontal: boolean;

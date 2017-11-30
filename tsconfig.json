@@ -21,10 +21,19 @@
     "inlineSources": true,
     "target": "es5",
     "skipLibCheck": true,
-    "lib": ["es2015", "dom"]
+    "lib": ["es2015", "dom"],
+    "types": [
+      "node",
+      "jasmine"
+    ]
   },
   "files": [
     "index.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "typings/main",
+    "typings/main.d.ts"
   ],
   "angularCompilerOptions": {
     "strictMetadataEmit": false,

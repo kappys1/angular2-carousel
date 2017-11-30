@@ -90,7 +90,7 @@ import {Carousel} from "./Carousel";
 // TODO: move chart.js to it's own component
 export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
 
-  public carousel = new Carousel();
+  public carousel : Carousel;
   //carrousel radious
   private radius:any;
   private rotationFn : string;
@@ -105,6 +105,11 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
   @Input("initialSlide") initialSlide = 0;
   @Input("loop") loop = false;
   @Input("mode") axis = "horizontal";
+
+  //autoPlay
+  @Input("autoPlay") autoPlay = false;
+  @Input("delayAutoPlay") delayAutoPlay = 3000;
+  private autoPlayTimeout : any;
 
   @Output("onInit") onInitCarousel = new EventEmitter();
   @Output("onReady") onReadyCarousel = new EventEmitter();
@@ -137,7 +142,7 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
 
 
   constructor(private componentElement:ElementRef){
-
+    this.carousel = new Carousel();
   }
 
   ngOnInit(){
@@ -166,6 +171,7 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
   public lockCarousel(val : boolean){
     this.carousel.lockSlides = val;
   }
+
   public slideNext(){
     if(this.checkLimitsCarrousel(this.carousel.activeIndex+1)){
       this.moveSlideTo(this.carousel.activeIndex+1);
@@ -188,6 +194,14 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
     }
   }
 
+  public autoPlayStart(){
+      this.autoPlay=true;
+      this.autoPlaySlide();
+  }
+  public autoPlayStop(){
+      clearInterval(this.autoPlayTimeout);
+      this.carousel.autoPlayIsRunning = false;
+  }
   public toggleMode(){
       this.axis = this.axis == "vertical"? "horizontal":"vertical";
       this.update();
@@ -224,6 +238,7 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
     this.manageEvents();
     this.initSlidesOn();
     this.updateCssShowSlides();
+    this.autoPlaySlide();
   }
 
 
@@ -232,6 +247,7 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
       hammertime.on('pan', this.rotate.bind(this));
       hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL ,threshold:0});
   }
+
   private rotate(e : any){
     if(!this.carousel.lockSlides) {
         let velocity = this.carousel.isHorizontal ? e.velocityX : -e.velocityY;
@@ -244,16 +260,30 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
         }
     }
   }
+
+  private autoPlaySlide(){
+    if(this.autoPlay){
+        this.autoPlayTimeout = setTimeout(function () {
+            this.carousel.autoPlayIsRunning = true;
+            this.slideNext();
+            this.autoPlaySlide();
+        }.bind(this),this.delayAutoPlay);
+    }
+  }
+
   private initSlidesOn(){
     if(this.initialSlide >= 0 && this.initialSlide<this.carousel.items.length){
       this.carousel.activeIndex = parseInt(this.initialSlide.toString());
     }
     else if(this.initialSlide >= this.carousel.items.length){
       this.carousel.activeIndex = this.carousel.items.length-1;
+      this.initialSlide = this.carousel.activeIndex;
     }
     else{
         this.carousel.activeIndex = 0;
+        this.initialSlide = this.carousel.activeIndex;
     }
+
     let newDeg = this.carousel.activeIndex*this.angle;
     this.setNewDeg(-newDeg);
     this.setTransformCarrousel(-newDeg);

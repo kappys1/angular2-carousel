@@ -21,6 +21,9 @@ export declare class CarouselComponent implements OnInit, OnChanges, AfterViewIn
     initialSlide: number;
     loop: boolean;
     axis: string;
+    autoPlay: boolean;
+    delayAutoPlay: number;
+    private autoPlayTimeout;
     onInitCarousel: EventEmitter<{}>;
     onReadyCarousel: EventEmitter<{}>;
     onChangePropertiesCarousel: EventEmitter<{}>;
@@ -50,12 +53,15 @@ export declare class CarouselComponent implements OnInit, OnChanges, AfterViewIn
     slideNext(): void;
     slidePrev(): void;
     slideTo(index: number): void;
+    autoPlayStart(): void;
+    autoPlayStop(): void;
     toggleMode(): void;
     reInit(): void;
     update(): void;
     private configPlugin();
     private initEventsPan();
     private rotate(e);
+    private autoPlaySlide();
     private initSlidesOn();
     private setNewDeg(newDeg);
     private checkRotation();
