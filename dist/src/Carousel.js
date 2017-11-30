@@ -17,7 +17,18 @@ var Carousel = /** @class */ (function () {
         this._activeIndex = 0;
         this._lastIndex = -1;
         this._lockSlides = false;
+        this._autoPlayIsRunning = false;
     }
+    Object.defineProperty(Carousel.prototype, "autoPlayIsRunning", {
+        get: function () {
+            return this._autoPlayIsRunning;
+        },
+        set: function (value) {
+            this._autoPlayIsRunning = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(Carousel.prototype, "currdeg", {
         get: function () {
             return this._currdeg;

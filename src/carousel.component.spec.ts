@@ -1,10 +1,9 @@
 import {Component, ViewChild} from '@angular/core';
-import { TestBed, async } from '@angular/core/testing';
+import {TestBed, async, tick, fakeAsync} from '@angular/core/testing';
 import { CarouselModule } from './carousel.module';
 import {CarouselComponent} from "./carousel.component";
-import {TouchSimulate} from "touch-simulate";
-import {Carousel} from "./Carousel";
 import {isNumber} from "util";
+import {By} from "@angular/platform-browser";
 
 @Component({
     selector: 'carousel-example',
@@ -25,6 +24,7 @@ class CarouselPruebaComponent {
 let fixture : any;
 let component : any;
 let element : any;
+let carouselElm :any;
 /**
  * Single stage on check instance and init object
  */
@@ -76,8 +76,28 @@ describe('Carousel check init', () => {
         const el : HTMLElement = fixture.debugElement.nativeElement as HTMLElement;
         expect(el.querySelector('.item-carousel').clientHeight).toEqual(component.topCarousel.carousel.maxHeigthSize);
     });
+    it('check show Two faces more',() => {
+        //check is Horizontal
+        component.topCarousel.morePairSlides=2;
+        component.topCarousel.reInit();
+        const el : HTMLElement = fixture.debugElement.nativeElement as HTMLElement;
+        expect(el.querySelectorAll('.next').length).toEqual(2);
+    });
 
+    it('autoStart on init',(done) => {
+        //check is Horizontal
+        component.topCarousel.autoPlay=true;
+        component.topCarousel.delayAutoPlay=50;
+        component.topCarousel.reInit();
+        setTimeout(function () {
+            fixture.detectChanges();
+            expect(component.topCarousel.carousel.activeIndex).toBe(1);
+            done();
+        },55);
+
+    });
 });
+
 describe('Carousel Input() and Output() Variables', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -90,6 +110,7 @@ describe('Carousel Input() and Output() Variables', () => {
         fixture = TestBed.createComponent(CarouselPruebaComponent);
         component = fixture.componentInstance;
         element = fixture.debugElement;
+        carouselElm  = fixture.debugElement.query(By.css('.item-carousel'));
         fixture.detectChanges();
     }));
 
@@ -125,19 +146,64 @@ describe('Carousel Input() and Output() Variables', () => {
     }));
 
     it('Output onSlideChange ', async(() => {
-        let value:Carousel = null;
+        let value = null;
         component.topCarousel.onSlideChange.subscribe((res:any) => value = res);
         component.topCarousel.slideNext();
         expect(value.activeIndex).toBe(1);
     }));
 
-    // it('Output touchstart ', async(() => {
-    //     let value = null;
-    //     component.topCarousel.onSlideChange.subscribe((res:any) => value = res);
-    //     element.triggerEventHandler('touchstart', null);
-    //     console.log(value)
-    //     expect(value['carousel'].activeIndex).toBe(0);
-    // }));
+
+    it('Output touchstart ', (done) => {
+        component.topCarousel.onTouchStart.subscribe(val =>{
+            expect(component.topCarousel.carousel.activeIndex).toBe(0);
+            done();
+        });
+        let dimensions = fixture.nativeElement.getBoundingClientRect();
+        let x =  dimensions.left + (dimensions.width/2);
+        let y =  dimensions.top + (dimensions.height/2);
+        sendTouchEvent(component.topCarousel.carouselElm.nativeElement,'touchstart',x,y);
+        fixture.detectChanges();
+    });
+
+    it('Output touchmove ', (done) => {
+        component.topCarousel.onTouchMove.subscribe(val =>{
+            expect(component.topCarousel.carousel.activeIndex).toBe(0);
+            done();
+        });
+        let dimensions = fixture.nativeElement.getBoundingClientRect();
+        let x =  dimensions.left + (dimensions.width/2);
+        let y =  dimensions.top + (dimensions.height/2);
+        sendTouchEvent(component.topCarousel.carouselElm.nativeElement,'touchmove',x,y);
+        fixture.detectChanges();
+    });
+
+    it('Output touchend ', (done) => {
+        component.topCarousel.onTouchEnd.subscribe(val =>{
+            expect(component.topCarousel.carousel.activeIndex).toBe(0);
+            done();
+        });
+        let dimensions = fixture.nativeElement.getBoundingClientRect();
+        let x =  dimensions.left + (dimensions.width/2);
+        let y =  dimensions.top + (dimensions.height/2);
+        sendTouchEvent(component.topCarousel.carouselElm.nativeElement,'touchend');
+        fixture.detectChanges();
+    });
+
+    it('Output panstart ', (done) => {
+        // component.topCarousel.onTouchEnd.subscribe(val =>{
+        //     expect(component.topCarousel.carousel.activeIndex).toBe(0);
+        //     done();
+        // });
+        let dimensions = fixture.nativeElement.getBoundingClientRect();
+        let x =  dimensions.left + (dimensions.width/2);
+        let y =  dimensions.top + (dimensions.height/2);
+        sendTouchEvent(component.topCarousel.carouselElm.nativeElement,'touchstart',x,y);
+        sendTouchEvent(component.topCarousel.carouselElm.nativeElement,'touchmove',x+100,y);
+        sendTouchEvent(component.topCarousel.carouselElm.nativeElement,'touchend',x+200,y);
+        fixture.detectChanges();
+        expect(true).toBe(true)
+        done();
+    });
 
 });
 
@@ -199,6 +265,42 @@ describe('Carousel check public functions', () => {
         expect(component.topCarousel.carousel.isHorizontal).toBeTruthy();
     }));
 
+    it('autoPlay start', (done) => {
+        component.topCarousel.delayAutoPlay = 50;
+        component.topCarousel.autoPlayStart();
+        fixture.detectChanges();
+        setTimeout(function () {
+            expect(component.topCarousel.carousel.autoPlayIsRunning).toBeTruthy();
+            expect(component.topCarousel.carousel.activeIndex).toBe(1);
+            component.topCarousel.autoPlayStop();
+            done();
+        },55);
+    });
+
+    it('autoPlay stop',((done) => {
+        component.topCarousel.delayAutoPlay = 50;
+        component.topCarousel.autoPlayStart();
+        fixture.detectChanges();
+        setTimeout(function () {
+            component.topCarousel.autoPlayStop();
+            fixture.detectChanges();
+        },55);
+        setTimeout(function () {
+            expect(component.topCarousel.carousel.activeIndex).toBe(1);
+            expect(component.topCarousel.carousel.autoPlayIsRunning).toBeFalsy();
+            done();
+        },60);
+    }));
+
+    it('autoPlay not overflow',((done) => {
+        component.topCarousel.delayAutoPlay = 10;
+        component.topCarousel.autoPlayStart();
+        setTimeout(function () {
+            expect(component.topCarousel.carousel.activeIndex).toBe(component.topCarousel.carousel.totalItems-1);
+            done();
+        },60);
+    }));
+
     it('Reinit Probe', async(() => {
         component.topCarousel.slideNext();
         component.topCarousel.reInit();
@@ -212,5 +314,32 @@ describe('Carousel check public functions', () => {
         let perspective = !isNumber(container.style.perspective)? container.style.perspective.split('px')[0]: container.style.perspective;
         expect(perspective).toEqual(400);
     }));
-});
 
+    afterEach(()=>{
+        fixture.destroy();
+    })
+});
+function sendTouchEvent(element, eventType,x=0,y=0) {
+
+    let e;
+    try{
+        e = document.createEvent('TouchEvent');
+        e.initEvent(eventType, true, true)
+    }
+    catch (err){
+        try{
+            e = document.createEvent('UIEvent');
+            e.initUIEvent(eventType, true, true,null,null);
+        }
+        catch(err){
+            e = document.createEvent('Event');
+            e.initTouchEvent(eventType, true, true)
+        }
+    }
+    e.targetTouches = {
+        pageX: x,
+        pageY: y
+    };
+    element.dispatchEvent(e);
+
+}

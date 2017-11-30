@@ -21,8 +21,16 @@ export class Carousel{
   private _activeIndex = 0;
   private _lastIndex = -1;
   private _lockSlides = false;
+  private _autoPlayIsRunning = false;
 
 
+  get autoPlayIsRunning(): boolean {
+      return this._autoPlayIsRunning;
+  }
+
+  set autoPlayIsRunning(value: boolean) {
+      this._autoPlayIsRunning = value;
+  }
 
   get currdeg(): number {
     return this._currdeg;

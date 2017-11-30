@@ -106,6 +106,11 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
   @Input("loop") loop = false;
   @Input("mode") axis = "horizontal";
 
+  //autoPlay
+  @Input("autoPlay") autoPlay = false;
+  @Input("delayAutoPlay") delayAutoPlay = 3000;
+  private autoPlayTimeout : any;
+
   @Output("onInit") onInitCarousel = new EventEmitter();
   @Output("onReady") onReadyCarousel = new EventEmitter();
   @Output("onChangeProperties") onChangePropertiesCarousel = new EventEmitter();
@@ -189,6 +194,14 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
     }
   }
 
+  public autoPlayStart(){
+      this.autoPlay=true;
+      this.autoPlaySlide();
+  }
+  public autoPlayStop(){
+      clearInterval(this.autoPlayTimeout);
+      this.carousel.autoPlayIsRunning = false;
+  }
   public toggleMode(){
       this.axis = this.axis == "vertical"? "horizontal":"vertical";
       this.update();
@@ -225,6 +238,7 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
     this.manageEvents();
     this.initSlidesOn();
     this.updateCssShowSlides();
+    this.autoPlaySlide();
   }
 
 
@@ -246,6 +260,17 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
         }
     }
   }
+
+  private autoPlaySlide(){
+    if(this.autoPlay){
+        this.autoPlayTimeout = setTimeout(function () {
+            this.carousel.autoPlayIsRunning = true;
+            this.slideNext();
+            this.autoPlaySlide();
+        }.bind(this),this.delayAutoPlay);
+    }
+  }
+
   private initSlidesOn(){
     if(this.initialSlide >= 0 && this.initialSlide<this.carousel.items.length){
       this.carousel.activeIndex = parseInt(this.initialSlide.toString());
