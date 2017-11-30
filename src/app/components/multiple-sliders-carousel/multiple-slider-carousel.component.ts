@@ -2,17 +2,18 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {CarouselComponent} from "angular2-carousel";
 
 @Component({
-  selector: 'app-autoplay-carousel',
-  templateUrl: './autoplay-carousel.component.html',
-  styleUrls: ['./autoplay-carousel.component.css']
+  selector: 'app-multiple-slider-carousel',
+  templateUrl: './multiple-slider-carousel.component.html',
+  styleUrls: ['./multiple-slider-carousel.component.css']
 })
-export class AutoplayCarouselComponent implements OnInit {
+export class MultipleSliderCarouselComponent implements OnInit {
 
   constructor() {
 
   }
   @ViewChild('topCarousel') topCarousel: CarouselComponent;
-
+  public degree = 25;
+  public moreSlides = 3;
   toggle(){
     this.topCarousel.toggleMode();
   }

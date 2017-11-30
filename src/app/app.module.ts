@@ -15,6 +15,8 @@ import {SafeHtmlPipe} from "./pipes/pipe.safehtml";
 import { CubeCarouselComponent } from './components/cube-carousel/cube-carousel.component';
 import { StyleCarouselComponent } from './components/style-carousel/style-carousel.component';
 import { AdsenseModule } from 'ng2-adsense';
+import {AutoplayCarouselComponent} from "./components/autoplay-carousel/autoplay-carousel.component";
+import {MultipleSliderCarouselComponent} from "./components/multiple-sliders-carousel/multiple-slider-carousel.component";
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { AdsenseModule } from 'ng2-adsense';
     PropertiesCarouselComponent,
     FunctionsCarouselComponent,
     CubeCarouselComponent,
-    StyleCarouselComponent
+    StyleCarouselComponent,
+    AutoplayCarouselComponent,
+    MultipleSliderCarouselComponent,
   ],
   imports: [
     RouterModule.forRoot(
