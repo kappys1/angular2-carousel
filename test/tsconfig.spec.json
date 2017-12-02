@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "module": "es2015",
+    "target": "es5",
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "lib": [
+      "es2015", "dom"
+    ],
+    "types": [
+      "node",
+      "jasmine"
+    ]
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "files": [
+    "index.ts"
+  ],
+  "awesomeTypeScriptLoaderOptions": {
+    "useWebpackText": true
+  }
+}
