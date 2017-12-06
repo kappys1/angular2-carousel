@@ -311,8 +311,8 @@ describe('Carousel check public functions', () => {
         component.topCarousel.perspective = 400;
         component.topCarousel.update();
         let container = component.topCarousel.containerElm.nativeElement;
-        let perspective = !isNumber(container.style.perspective)? container.style.perspective.split('px')[0]: container.style.perspective;
-        expect(perspective).toEqual(400);
+        let perspective = !isNumber(container.style.perspective)? parseInt(container.style.perspective.split('px')[0]) : container.style.perspective;
+        expect(parseInt(perspective)).toEqual(400);
     }));
 
     afterEach(()=>{
