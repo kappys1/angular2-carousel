@@ -21,4 +21,4 @@ before_script:
 
 script:
   - npm test
-  - npm coveralls
+  - npm run coveralls
