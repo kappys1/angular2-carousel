@@ -1,8 +1,8 @@
 # Angular2-Carousel
 
-[![npm version](https://badge.fury.io/js/angular2-carousel.svg)](https://badge.fury.io/js/angular2-carousel) [![npm](https://img.shields.io/badge/build-passed-brightgreen.svg?style=flat)](https://www.npmjs.com/package/angular2-carousel) ![Angular2+](https://img.shields.io/badge/Angular_2+-passing-brightgreen.svg?style=flat) ![Angular2+](https://img.shields.io/badge/Angular_5-success-brightgreen.svg?style=flat) ![licence](https://img.shields.io/badge/licence-MIT-blue.svg?style=flat)
+[![npm version](https://badge.fury.io/js/angular2-carousel.svg)](https://badge.fury.io/js/angular2-carousel) [![Build Status](https://travis-ci.org/kappys1/angular2-carousel.svg?branch=master)](https://travis-ci.org/kappys1/angular2-carousel) [![Coverage Status](https://coveralls.io/repos/github/kappys1/angular2-carousel/badge.svg?branch=master)](https://coveralls.io/github/kappys1/angular2-carousel?branch=master)  ![Angular2+](https://img.shields.io/badge/Angular_2+-passing-brightgreen.svg?style=flat) ![Angular2+](https://img.shields.io/badge/Angular_5-success-brightgreen.svg?style=flat) ![licence](https://img.shields.io/badge/licence-MIT-blue.svg?style=flat)
 
-> this is a smart library to create a carousel for angular 2+
+> An lightweight, touchable and responsive library to create a carousel for angular 2+
 
 ## Demo
 > demos available [here](https://kappys1.github.io/angular2-carousel)

@@ -67,6 +67,7 @@ import {Carousel} from "./Carousel";
             -webkit-user-drag: none;
             -webkit-user-select: none;
             -ms-user-select: none;
+            pointer-events: none;
         }
         
         :host .container .carousel ::content >>> .item-carousel.next,
@@ -334,6 +335,7 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
   private setPerspectiveContainer(){
     this.containerElm.nativeElement.style.perspective = this.perspective;
     this.containerElm.nativeElement.style.webkitPerspective = this.perspective;
+    this.containerElm.nativeElement.style.MozPerspective = this.perspective;
   }
 
   private getmaxSizes(){
