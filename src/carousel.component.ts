@@ -50,7 +50,6 @@ import {Carousel} from "./Carousel";
             height: 100%;
             text-align: center;
             transform-style: preserve-3d;
-            overflow: hidden;
             opacity: 0;
         }
         :host.ready .carousel ::content >>> .item-carousel {
@@ -67,7 +66,6 @@ import {Carousel} from "./Carousel";
             -webkit-user-drag: none;
             -webkit-user-select: none;
             -ms-user-select: none;
-            pointer-events: none;
         }
         
         :host .container .carousel ::content >>> .item-carousel.next,
