@@ -44,9 +44,15 @@ h1{
   top:0vh;
 }
 
+.item-carousel div,
 .item-carousel img{
-  height: 80%;
-  width: auto;
+  height: 100%;
+  width: 100%;
+}
+.item-carousel div{
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .parameter-option{
