@@ -10,7 +10,7 @@
     "lint": "tslint ./src/**/*.ts -t verbose",
     "e2e": "ng e2e",
     "build": "ng build --bh /angular2-carousel/ && cpx './src/404.html' dist",
-    "gh-pages": "git subtree push --prefix dist origin gh-pages "
+    "gh-pages": "git push origin `git subtree split --prefix dist master`:gh-pages --force"
   },
   "keywords": [],
   "author": "alex marcos",

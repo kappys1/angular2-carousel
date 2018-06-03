@@ -17,11 +17,14 @@ import { StyleCarouselComponent } from './components/style-carousel/style-carous
 import { AdsenseModule } from 'ng2-adsense';
 import {AutoplayCarouselComponent} from "./components/autoplay-carousel/autoplay-carousel.component";
 import {MultipleSliderCarouselComponent} from "./components/multiple-sliders-carousel/multiple-slider-carousel.component";
+import {SimpleCarouselFromServiceComponent} from "./components/simple-carousel-from-service/simple-carousel-from-service.component";
+import {SimpleCarouselService} from "./components/simple-carousel-from-service/simple-carousel-from-service.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     SimpleCarouselComponent,
+    SimpleCarouselFromServiceComponent,
     ExamplesComponent,
     ApiComponent,
     SafeHtmlPipe,
@@ -44,7 +47,7 @@ import {MultipleSliderCarouselComponent} from "./components/multiple-sliders-car
     CarouselModule,
     BrowserModule
   ],
-  providers: [],
+  providers: [SimpleCarouselService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
