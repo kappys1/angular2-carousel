@@ -16,6 +16,11 @@ export class SimpleCarouselFromServiceComponent implements OnInit {
       this.carouselService.getImagesEmitter.subscribe(val => {
         console.log("emittttt");
         this.images = val;
+        //is not the better form, improving
+        setTimeout(function () {
+            this.topCarousel.reInit();
+        }.bind(this));
+
       })
     }
 
