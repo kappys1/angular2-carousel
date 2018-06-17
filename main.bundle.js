@@ -562,12 +562,7 @@ var SimpleCarouselFromServiceComponent = (function () {
         var _this = this;
         this.carouselService = carouselService;
         this.carouselService.getImagesEmitter.subscribe(function (val) {
-            console.log("emittttt");
             _this.images = val;
-            //is not the better form, improving
-            setTimeout(function () {
-                this.topCarousel.reInit();
-            }.bind(_this));
         });
     }
     SimpleCarouselFromServiceComponent.prototype.toggle = function () {
@@ -575,6 +570,11 @@ var SimpleCarouselFromServiceComponent = (function () {
     };
     SimpleCarouselFromServiceComponent.prototype.ngOnInit = function () {
         setTimeout(function () { this.carouselService.getImages(); }.bind(this), 4000);
+        setTimeout(function () {
+            var elm = Object.assign([], this.images);
+            this.images.push(elm[2]);
+            this.images.push(elm[3]);
+        }.bind(this), 7000);
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* ViewChild */])('topCarousel'),

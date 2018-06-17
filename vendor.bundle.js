@@ -196,6 +196,7 @@ var Carousel = /** @class */ (function () {
 var CarouselComponent = /** @class */ (function () {
     function CarouselComponent(componentElement) {
         this.componentElement = componentElement;
+        this.itemsCarouselRendered = 0;
         this.morePairSlides = 1;
         this.angle = 45;
         this.ratioScale = 1;
@@ -231,14 +232,25 @@ var CarouselComponent = /** @class */ (function () {
         this.onReachEnd = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         this.carousel = new __WEBPACK_IMPORTED_MODULE_2__Carousel__["a" /* Carousel */]();
     }
+    CarouselComponent.prototype.onDomChange = function ($event) {
+        if ($event.addedNodes.length > 0) {
+            if (this.itemsCarouselRendered === 0) {
+                this.reInit();
+            }
+            else {
+                this.update();
+                this.updateCssShowSlides();
+            }
+            this.itemsCarouselRendered = this.carouselElm.nativeElement.getElementsByClassName("item-carousel").length;
+        }
+    };
     CarouselComponent.prototype.ngOnInit = function () {
         this.onInitCarousel.emit(this.carousel);
+        this.itemsCarouselRendered = this.carouselElm.nativeElement.getElementsByClassName("item-carousel").length;
     };
     CarouselComponent.prototype.ngOnChanges = function (changes) {
-        console.log("change",changes);
         for (var i = 0; i < Object.keys(changes).length; i++) {
             if (changes[Object.keys(changes)[i]].currentValue != changes[Object.keys(changes)[i]].previousValue && !changes[Object.keys(changes)[i]].isFirstChange()) {
-                console.log("change",changes[Object.keys(changes)[i]].currentValue );
                 this.update();
                 this.onChangePropertiesCarousel.emit(changes);
             }
@@ -547,9 +559,8 @@ var CarouselComponent = /** @class */ (function () {
                     selector: 'carousel-component',
                     styles: ["\n        :host{\n            display: flex;\n        }\n        :host .container {\n            margin: 0 auto;\n            width: 600px;\n            height: 400px;\n            position: relative;\n        }\n\n\n        :host .container .carousel {\n            height: 100%;\n            width: 100%;\n            position: absolute;\n            -webkit-transform-style: preserve-3d;\n            -moz-transform-style: preserve-3d;\n            -o-transform-style: preserve-3d;\n            transform-style: preserve-3d;\n \n        }\n        :host.ready .carousel {\n            -webkit-transition: -webkit-transform 300ms;\n            -moz-transition:-moz-transform 300ms;\n            -o-transition: -o-transform 300ms;\n            transition: transform 300ms;\n        }\n        :host .container .carousel ::content >>> .item-carousel {\n            display: block;\n            position: absolute;\n            border:1px solid black;\n            width: 100%;\n            height: 100%;\n            text-align: center;\n            transform-style: preserve-3d;\n            opacity: 0;\n        }\n        :host.ready .carousel ::content >>> .item-carousel {\n            -webkit-transition: opacity 300ms, -webkit-transform 300ms;\n            -moz-transition: opacity 300ms, -moz-transform 300ms;\n            -o-transition: opacity 300ms, -o-transform 300ms;\n            transition: opacity 300ms, transform 300ms;\n        }\n        \n        :host .container .carousel ::content >>> .item-carousel img{\n            user-drag: none;\n            user-select: none;\n            -moz-user-select: none;\n            -webkit-user-drag: none;\n            -webkit-user-select: none;\n            -ms-user-select: none;\n        }\n        \n        :host .container .carousel ::content >>> .item-carousel.next,\n        :host .container .carousel ::content >>> .item-carousel.prev,\n        :host .container .carousel ::content >>> .item-carousel.actual{\n            opacity: 0.95;\n        }\n\n\n    "],
                     template: '<div class="container" #container>\n' +
-                        '  <div class="carousel" #carousel  >\n' +
-                        '    <!--<div class="item {{item.toLowerCase()}} {{updateCssShowSlides(i)}}" *ngFor="let item of data; let i = index">{{item}}</div>-->\n' +
-                        '    <ng-content select=".item-carousel"></ng-content>\n' +
+                        '  <div class="carousel" #carousel  (domChange)="onDomChange($event)">\n' +
+                        '    <ng-content  select=".item-carousel"></ng-content>\n' +
                         '  </div>\n' +
                         '</div>',
                 },] },
@@ -609,9 +620,10 @@ var CarouselComponent = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CarouselModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__carousel_component__ = __webpack_require__("../../../../angular2-carousel/src/carousel.component.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_hammerjs__ = __webpack_require__("../../../../hammerjs/hammer.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_hammerjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_hammerjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dom_change_directive__ = __webpack_require__("../../../../angular2-carousel/src/dom-change.directive.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_hammerjs__ = __webpack_require__("../../../../hammerjs/hammer.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_hammerjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_hammerjs__);
 /**
  * :tmtfactory) © 2017
  * Alex Marcos <alejandro.marcos@tmtfactory.com>
@@ -631,17 +643,18 @@ var __extends = (this && this.__extends) || (function () {
 
 
 
+
 var MyHammerConfig = /** @class */ (function (_super) {
     __extends(MyHammerConfig, _super);
     function MyHammerConfig() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.overrides = {
-            'pan': { direction: __WEBPACK_IMPORTED_MODULE_3_hammerjs__["DIRECTION_ALL"] } // override default settings
+            'pan': { direction: __WEBPACK_IMPORTED_MODULE_4_hammerjs__["DIRECTION_ALL"] } // override default settings
         };
         return _this;
     }
     return MyHammerConfig;
-}(__WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["d" /* HammerGestureConfig */]));
+}(__WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["d" /* HammerGestureConfig */]));
 
 var CarouselModule = /** @class */ (function () {
     function CarouselModule() {
@@ -649,11 +662,12 @@ var CarouselModule = /** @class */ (function () {
     CarouselModule.decorators = [
         { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */], args: [{
                     declarations: [
-                        __WEBPACK_IMPORTED_MODULE_1__carousel_component__["a" /* CarouselComponent */]
+                        __WEBPACK_IMPORTED_MODULE_2__dom_change_directive__["a" /* DomChangeDirective */],
+                        __WEBPACK_IMPORTED_MODULE_1__carousel_component__["a" /* CarouselComponent */],
                     ],
                     providers: [
                         {
-                            provide: __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["c" /* HAMMER_GESTURE_CONFIG */],
+                            provide: __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["c" /* HAMMER_GESTURE_CONFIG */],
                             useClass: MyHammerConfig
                         }
                     ],
@@ -667,6 +681,50 @@ var CarouselModule = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=carousel.module.js.map
+
+/***/ }),
+
+/***/ "../../../../angular2-carousel/src/dom-change.directive.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DomChangeDirective; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+
+var DomChangeDirective = /** @class */ (function () {
+    function DomChangeDirective(elementRef) {
+        var _this = this;
+        this.elementRef = elementRef;
+        this.domChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
+        var element = this.elementRef.nativeElement;
+        this.changes = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) { return _this.domChange.emit(mutation); });
+        });
+        this.changes.observe(element, {
+            attributes: true,
+            childList: true,
+            characterData: true
+        });
+    }
+    DomChangeDirective.prototype.ngOnDestroy = function () {
+        this.changes.disconnect();
+    };
+    DomChangeDirective.decorators = [
+        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* Directive */], args: [{
+                    selector: '[domChange]'
+                },] },
+    ];
+    /** @nocollapse */
+    DomChangeDirective.ctorParameters = function () { return [
+        { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ElementRef */], },
+    ]; };
+    DomChangeDirective.propDecorators = {
+        'domChange': [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["S" /* Output */] },],
+    };
+    return DomChangeDirective;
+}());
+
+//# sourceMappingURL=dom-change.directive.js.map
 
 /***/ }),
 
