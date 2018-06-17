@@ -10,6 +10,7 @@ import { Carousel } from "./Carousel";
 var CarouselComponent = /** @class */ (function () {
     function CarouselComponent(componentElement) {
         this.componentElement = componentElement;
+        this.initNodes = 0;
         this.morePairSlides = 1;
         this.angle = 45;
         this.ratioScale = 1;
@@ -45,10 +46,27 @@ var CarouselComponent = /** @class */ (function () {
         this.onReachEnd = new EventEmitter();
         this.carousel = new Carousel();
     }
+    CarouselComponent.prototype.ngAfterContentInit = function () {
+        console.log("INIT");
+    };
+    CarouselComponent.prototype.onDomChange = function ($event) {
+        if ($event.addedNodes.length > 0) {
+            this.initNodes = this.carouselElm.nativeElement.getElementsByClassName("item-carousel").length;
+            if (this.initNodes === 0) {
+                this.reInit();
+            }
+            else {
+                this.update();
+                this.updateCssShowSlides();
+            }
+        }
+    };
     CarouselComponent.prototype.ngOnInit = function () {
         this.onInitCarousel.emit(this.carousel);
+        this.initNodes = this.carouselElm.nativeElement.getElementsByClassName("item-carousel").length;
     };
     CarouselComponent.prototype.ngOnChanges = function (changes) {
+        console.log("changes");
         for (var i = 0; i < Object.keys(changes).length; i++) {
             if (changes[Object.keys(changes)[i]].currentValue != changes[Object.keys(changes)[i]].previousValue && !changes[Object.keys(changes)[i]].isFirstChange()) {
                 this.update();
@@ -359,9 +377,8 @@ var CarouselComponent = /** @class */ (function () {
                     selector: 'carousel-component',
                     styles: ["\n        :host{\n            display: flex;\n        }\n        :host .container {\n            margin: 0 auto;\n            width: 600px;\n            height: 400px;\n            position: relative;\n        }\n\n\n        :host .container .carousel {\n            height: 100%;\n            width: 100%;\n            position: absolute;\n            -webkit-transform-style: preserve-3d;\n            -moz-transform-style: preserve-3d;\n            -o-transform-style: preserve-3d;\n            transform-style: preserve-3d;\n \n        }\n        :host.ready .carousel {\n            -webkit-transition: -webkit-transform 300ms;\n            -moz-transition:-moz-transform 300ms;\n            -o-transition: -o-transform 300ms;\n            transition: transform 300ms;\n        }\n        :host .container .carousel ::content >>> .item-carousel {\n            display: block;\n            position: absolute;\n            border:1px solid black;\n            width: 100%;\n            height: 100%;\n            text-align: center;\n            transform-style: preserve-3d;\n            opacity: 0;\n        }\n        :host.ready .carousel ::content >>> .item-carousel {\n            -webkit-transition: opacity 300ms, -webkit-transform 300ms;\n            -moz-transition: opacity 300ms, -moz-transform 300ms;\n            -o-transition: opacity 300ms, -o-transform 300ms;\n            transition: opacity 300ms, transform 300ms;\n        }\n        \n        :host .container .carousel ::content >>> .item-carousel img{\n            user-drag: none;\n            user-select: none;\n            -moz-user-select: none;\n            -webkit-user-drag: none;\n            -webkit-user-select: none;\n            -ms-user-select: none;\n        }\n        \n        :host .container .carousel ::content >>> .item-carousel.next,\n        :host .container .carousel ::content >>> .item-carousel.prev,\n        :host .container .carousel ::content >>> .item-carousel.actual{\n            opacity: 0.95;\n        }\n\n\n    "],
                     template: '<div class="container" #container>\n' +
-                        '  <div class="carousel" #carousel  >\n' +
-                        '    <!--<div class="item {{item.toLowerCase()}} {{updateCssShowSlides(i)}}" *ngFor="let item of data; let i = index">{{item}}</div>-->\n' +
-                        '    <ng-content select=".item-carousel"></ng-content>\n' +
+                        '  <div class="carousel" #carousel  (domChange)="onDomChange($event)">\n' +
+                        '    <ng-content  select=".item-carousel"></ng-content>\n' +
                         '  </div>\n' +
                         '</div>',
                 },] },

@@ -5,7 +5,8 @@
  */
 import {
     AfterViewInit, Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges,
-    ViewChild
+    ViewChild,
+    AfterContentInit
 } from '@angular/core';
 import * as Hammer from 'hammerjs';
 import {Carousel} from "./Carousel";
@@ -78,21 +79,21 @@ import {Carousel} from "./Carousel";
     `],
 
     template: '<div class="container" #container>\n' +
-    '  <div class="carousel" #carousel  >\n' +
-    '    <!--<div class="item {{item.toLowerCase()}} {{updateCssShowSlides(i)}}" *ngFor="let item of data; let i = index">{{item}}</div>-->\n' +
-    '    <ng-content select=".item-carousel"></ng-content>\n' +
+    '  <div class="carousel" #carousel  (domChange)="onDomChange($event)">\n' +
+    '    <ng-content  select=".item-carousel"></ng-content>\n' +
     '  </div>\n' +
     '</div>',
 })
 
 
 // TODO: move chart.js to it's own component
-export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
+export class CarouselComponent implements OnInit,OnChanges,AfterViewInit,AfterContentInit {
 
   public carousel : Carousel;
   //carrousel radious
   private radius:any;
   private rotationFn : string;
+  private itemsCarouselRendered : number =  0 ;
   @Input("morePairSlides") morePairSlides = 1;
   @Input("angle") angle = 45;
   @Input("ratioScale") ratioScale = 1;
@@ -144,11 +145,29 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit{
     this.carousel = new Carousel();
   }
 
+  ngAfterContentInit(){
+    console.log("INIT");
+  }
+  onDomChange($event : any){
+    if($event.addedNodes.length > 0){
+      this.itemsCarouselRendered = this.carouselElm.nativeElement.getElementsByClassName("item-carousel").length;
+      if(this.itemsCarouselRendered === 0){
+        this.reInit();
+      }
+      else{
+        this.update();
+        this.updateCssShowSlides();
+      }
+    }
+  }
+
   ngOnInit(){
     this.onInitCarousel.emit(this.carousel);
+    this.itemsCarouselRendered = this.carouselElm.nativeElement.getElementsByClassName("item-carousel").length
   }
 
   ngOnChanges(changes : SimpleChanges){
+    console.log("changes");
     for(let i=0;i<Object.keys(changes).length;i++){
         if(changes[Object.keys(changes)[i]].currentValue != changes[Object.keys(changes)[i]].previousValue && !changes[Object.keys(changes)[i]].isFirstChange()){
             this.update();

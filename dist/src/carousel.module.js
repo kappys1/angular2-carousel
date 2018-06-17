@@ -15,6 +15,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CarouselComponent } from './carousel.component';
+import { DomChangeDirective } from './dom-change.directive';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import * as Hammer from 'hammerjs';
 var MyHammerConfig = /** @class */ (function (_super) {
@@ -35,7 +36,8 @@ var CarouselModule = /** @class */ (function () {
     CarouselModule.decorators = [
         { type: NgModule, args: [{
                     declarations: [
-                        CarouselComponent
+                        DomChangeDirective,
+                        CarouselComponent,
                     ],
                     providers: [
                         {
