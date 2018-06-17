@@ -14,13 +14,7 @@ export class SimpleCarouselFromServiceComponent implements OnInit {
 
     constructor(private carouselService : SimpleCarouselService) {
       this.carouselService.getImagesEmitter.subscribe(val => {
-        console.log("emittttt");
         this.images = val;
-        //is not the better form, improving
-        setTimeout(function () {
-            this.topCarousel.reInit();
-        }.bind(this));
-
       })
     }
 
@@ -34,7 +28,11 @@ export class SimpleCarouselFromServiceComponent implements OnInit {
 
     ngOnInit() {
       setTimeout(function(){this.carouselService.getImages()}.bind(this),4000)
-
+      setTimeout(function(){
+        const elm = Object.assign([],this.images);
+        this.images.push(elm[2]);
+        this.images.push(elm[3]);
+      }.bind(this),7000) 
     }
 
 }
