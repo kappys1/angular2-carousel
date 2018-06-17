@@ -5,9 +5,8 @@
  */
 import {
     AfterViewInit, Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges,
-    ViewChild,
-    AfterContentInit
-} from '@angular/core';
+    ViewChild
+  } from '@angular/core';
 import * as Hammer from 'hammerjs';
 import {Carousel} from "./Carousel";
 
@@ -87,7 +86,7 @@ import {Carousel} from "./Carousel";
 
 
 // TODO: move chart.js to it's own component
-export class CarouselComponent implements OnInit,OnChanges,AfterViewInit,AfterContentInit {
+export class CarouselComponent implements OnInit,OnChanges,AfterViewInit {
 
   public carousel : Carousel;
   //carrousel radious
@@ -145,12 +144,8 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit,AfterCo
     this.carousel = new Carousel();
   }
 
-  ngAfterContentInit(){
-    console.log("INIT");
-  }
   onDomChange($event : any){
     if($event.addedNodes.length > 0){
-      this.itemsCarouselRendered = this.carouselElm.nativeElement.getElementsByClassName("item-carousel").length;
       if(this.itemsCarouselRendered === 0){
         this.reInit();
       }
@@ -158,6 +153,7 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit,AfterCo
         this.update();
         this.updateCssShowSlides();
       }
+      this.itemsCarouselRendered = this.carouselElm.nativeElement.getElementsByClassName("item-carousel").length;
     }
   }
 
@@ -167,7 +163,6 @@ export class CarouselComponent implements OnInit,OnChanges,AfterViewInit,AfterCo
   }
 
   ngOnChanges(changes : SimpleChanges){
-    console.log("changes");
     for(let i=0;i<Object.keys(changes).length;i++){
         if(changes[Object.keys(changes)[i]].currentValue != changes[Object.keys(changes)[i]].previousValue && !changes[Object.keys(changes)[i]].isFirstChange()){
             this.update();

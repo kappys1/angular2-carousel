@@ -10,7 +10,7 @@ import { Carousel } from "./Carousel";
 var CarouselComponent = /** @class */ (function () {
     function CarouselComponent(componentElement) {
         this.componentElement = componentElement;
-        this.initNodes = 0;
+        this.itemsCarouselRendered = 0;
         this.morePairSlides = 1;
         this.angle = 45;
         this.ratioScale = 1;
@@ -46,27 +46,23 @@ var CarouselComponent = /** @class */ (function () {
         this.onReachEnd = new EventEmitter();
         this.carousel = new Carousel();
     }
-    CarouselComponent.prototype.ngAfterContentInit = function () {
-        console.log("INIT");
-    };
     CarouselComponent.prototype.onDomChange = function ($event) {
         if ($event.addedNodes.length > 0) {
-            this.initNodes = this.carouselElm.nativeElement.getElementsByClassName("item-carousel").length;
-            if (this.initNodes === 0) {
+            if (this.itemsCarouselRendered === 0) {
                 this.reInit();
             }
             else {
                 this.update();
                 this.updateCssShowSlides();
             }
+            this.itemsCarouselRendered = this.carouselElm.nativeElement.getElementsByClassName("item-carousel").length;
         }
     };
     CarouselComponent.prototype.ngOnInit = function () {
         this.onInitCarousel.emit(this.carousel);
-        this.initNodes = this.carouselElm.nativeElement.getElementsByClassName("item-carousel").length;
+        this.itemsCarouselRendered = this.carouselElm.nativeElement.getElementsByClassName("item-carousel").length;
     };
     CarouselComponent.prototype.ngOnChanges = function (changes) {
-        console.log("changes");
         for (var i = 0; i < Object.keys(changes).length; i++) {
             if (changes[Object.keys(changes)[i]].currentValue != changes[Object.keys(changes)[i]].previousValue && !changes[Object.keys(changes)[i]].isFirstChange()) {
                 this.update();

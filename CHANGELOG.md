@@ -2,7 +2,7 @@
 
 ### Before Upgrading once read the [Readme.md](https://github.com/kappys1/angular2-carousel/blob/master/README.md) file
 
-## 1.0.15
+## 1.0.16
 
 ### Features
 * Dynamic update Carousel

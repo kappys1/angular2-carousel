@@ -3,14 +3,14 @@
  * Alex Marcos <alejandro.marcos@tmtfactory.com>
  * @ignore
  */
-import { AfterViewInit, ElementRef, EventEmitter, OnChanges, OnInit, SimpleChanges, AfterContentInit } from '@angular/core';
+import { AfterViewInit, ElementRef, EventEmitter, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Carousel } from "./Carousel";
-export declare class CarouselComponent implements OnInit, OnChanges, AfterViewInit, AfterContentInit {
+export declare class CarouselComponent implements OnInit, OnChanges, AfterViewInit {
     private componentElement;
     carousel: Carousel;
     private radius;
     private rotationFn;
-    private initNodes;
+    private itemsCarouselRendered;
     morePairSlides: number;
     angle: number;
     ratioScale: number;
@@ -47,7 +47,6 @@ export declare class CarouselComponent implements OnInit, OnChanges, AfterViewIn
     carouselElm: ElementRef;
     containerElm: ElementRef;
     constructor(componentElement: ElementRef);
-    ngAfterContentInit(): void;
     onDomChange($event: any): void;
     ngOnInit(): void;
     ngOnChanges(changes: SimpleChanges): void;
