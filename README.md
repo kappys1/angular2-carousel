@@ -4,10 +4,10 @@
 
 > An lightweight, touchable and responsive library to create a carousel for angular 2+
 
-## Demo
+## Demo :bookmark_tabs:
 > demos available [here](https://kappys1.github.io/angular2-carousel)
 
-## Install
+## Install :computer:
 You can install the package from our npm package
 ```
  npm install --save angular2-carousel
@@ -19,7 +19,7 @@ npm install @types/hammerjs
 npm install hammerjs
 ```
 
-## Usage
+## Usage :running:
 First tou need to provide the CarouselModule to your desired Module 
 
 
@@ -60,10 +60,10 @@ Now, you can use CarouselModule as follow:
 
 #### [Preview](https://embed.plnkr.co/CPWvmndIgpsglCvLChhc/)
 
-## API Documentation
+## API Documentation :books:
 #### you can see [here](https://github.com/kappys1/angular2-carousel/wiki/API-Documentation) or in [web](https://kappys1.github.io/angular2-carousel)
 
-### Author
+### Author :man:
 Alex Marcos Gutierrez
 TMTFactory
 ### License
