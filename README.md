@@ -6,7 +6,10 @@
 
 ## NEW VERSION
 > **I make a new version for angular 7.0.0 without dependencies. NO MORE HAMMER**
-[ngx-carousel-lib](https://kappys1.github.io/ngx-carousel)
+
+[ngx-carousel-lib github](https://github.com/kappys1/ngx-carousel)
+
+[ngx-carousel-lib web](https://kappys1.github.io/ngx-carousel)
 
 
 ## Demo
