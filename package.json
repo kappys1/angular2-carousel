@@ -1,6 +1,6 @@
 {
   "name": "angular2-carousel",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "Angular 2 Minimalist carousel",
   "main": "dist/bundle/ng2-carousel-module.umd.js",
   "module": "dist/index.ts",

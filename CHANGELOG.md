@@ -2,6 +2,23 @@
 
 ### Before Upgrading once read the [Readme.md](https://github.com/kappys1/angular2-carousel/blob/master/README.md) file
 
+## 1.0.17
+
+### Features
+* MAYOR : New Version in 
+
+    [ngx-carousel-lib NPM](https://www.npmjs.com/package/ngx-carousel-lib)
+    
+    [ngx-carousel-lib github](https://github.com/kappys1/ngx-carousel)
+
+    [ngx-carousel-lib web](https://kappys1.github.io/ngx-carousel)
+
+
+
+    
+
+
+
 ## 1.0.16
 
 ### Features
