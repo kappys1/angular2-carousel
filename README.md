@@ -4,7 +4,7 @@
 
 > An lightweight, touchable and responsive library to create a carousel for angular 2+
 
-## NEW VERSION
+## OLD VERSION - DEPRECATED VERSION
 > **I make a new version for angular, compatible with 7.0.0 without dependencies. NO MORE HAMMER**
 
 [ngx-carousel-lib NPM](https://www.npmjs.com/package/ngx-carousel-lib)
@@ -12,6 +12,20 @@
 [ngx-carousel-lib github](https://github.com/kappys1/ngx-carousel)
 
 [ngx-carousel-lib web](https://kappys1.github.io/ngx-carousel)
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
 
 
 ## Demo
