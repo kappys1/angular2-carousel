@@ -1,10 +1,11 @@
 # Angular2-Carousel
+# OLD VERSION - DEPRECATED VERSION
 
 [![npm version](https://badge.fury.io/js/angular2-carousel.svg)](https://badge.fury.io/js/angular2-carousel) [![Build Status](https://travis-ci.org/kappys1/angular2-carousel.svg?branch=master)](https://travis-ci.org/kappys1/angular2-carousel) [![Coverage Status](https://coveralls.io/repos/github/kappys1/angular2-carousel/badge.svg?branch=master)](https://coveralls.io/github/kappys1/angular2-carousel?branch=master)  ![Angular2+](https://img.shields.io/badge/Angular_2+-passing-brightgreen.svg?style=flat) ![Angular2+](https://img.shields.io/badge/Angular_5-success-brightgreen.svg?style=flat) ![licence](https://img.shields.io/badge/licence-MIT-blue.svg?style=flat)
 
 > An lightweight, touchable and responsive library to create a carousel for angular 2+
 
-## OLD VERSION - DEPRECATED VERSION
+## NEW VERSION HERE NX-ANGUAR
 > **I make a new version for angular, compatible with 7.0.0 without dependencies. NO MORE HAMMER**
 
 [ngx-carousel-lib NPM](https://www.npmjs.com/package/ngx-carousel-lib)
